@@ -201,7 +201,7 @@ if (height) {
     console.log('Height is undefined.')
 }
 
-*/
+
 
 const age = 18;
 if (age === 18) console.log(`You just became an adult. (strict)`);
@@ -235,3 +235,58 @@ if (favouriteNumber === 23) {
 if (favouriteNumber !== 23) console.log(`Why not 23?`);
 
 
+
+const hasDriversLicense = true; // A
+const hasGoodVision = true; // B
+
+console.log(hasDriversLicense && hasGoodVision);
+console.log(hasDriversLicense || hasGoodVision);
+console.log(!hasDriversLicense);
+
+
+
+// if (hasDriversLicense && hasGoodVision) {
+//     console.log(`Sarah is able to drive!`)
+// } else {
+//     console.log(`Someone else should drive...`);
+// }
+
+const isTired = false; // C
+console.log(hasDriversLicense && hasGoodVision && isTired);
+
+
+if (hasDriversLicense && hasGoodVision && !isTired) {
+    console.log(`Sarah is able to drive!`)
+} else {
+    console.log(`Someone else should drive...`);
+}
+
+
+
+const dolphinsAvgScore = Math.round((96 + 108 + 102) / 3)
+console.log(dolphinsAvgScore);
+const koalasAvgScore = Math.round((88 + 91 + 126) / 3)
+console.log(koalasAvgScore);
+
+
+if (dolphinsAvgScore > koalasAvgScore) {
+    console.log(`Dolphins win with an average score of ${dolphinsAvgScore}!`);
+} else if (dolphinsAvgScore === koalasAvgScore) {
+    console.log(`Dolphins and Koalas draw!`)
+} else
+    console.log(`Koalas win with an average score of ${koalasAvgScore}!`);
+*/
+
+const dolphinsAvgScoreBonus1 = Math.round((97 + 112 + 86) / 3);
+const koalasAvgScoreBonus1 = Math.round((109 + 95 + 80) / 3);
+console.log(dolphinsAvgScoreBonus1);
+console.log(koalasAvgScoreBonus1);
+
+if (dolphinsAvgScoreBonus1 >= 100 && dolphinsAvgScoreBonus1 > koalasAvgScoreBonus1) {
+    console.log(`Dolphins win with a score of ${dolphinsAvgScoreBonus1}`);
+} else if (koalasAvgScoreBonus1 >= 100 && koalasAvgScoreBonus1 > dolphinsAvgScoreBonus1) {
+    console.log(`Koalas win with a score of ${koalasAvgScoreBonus1}`);
+} else if (dolphinsAvgScoreBonus1 >= 100 && koalasAvgScoreBonus1 >= 100 && dolphinsAvgScoreBonus1 === koalasAvgScoreBonus1) {
+    console.log(`It's a draw!`)
+} else
+    console.log("Noone wins the trophy!")
