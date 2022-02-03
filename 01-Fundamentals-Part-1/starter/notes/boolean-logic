@@ -1,0 +1,28 @@
+Boolean logic is a branch of computer science which uses true and false values to solve complex logical problems. To do that, it uses several logical operators to combine truth and false values.
+
+We will cover the 3 basic boolean operators. AND (&&) OR (||) 
+
+Boolean logic is not specific to JS, it is used in all programming. 
+
+The AND (&&) operator will only return true if ALL values return true.  If any value is false, the AND operator will return false.
+
+The OR (||) operator will return true if at least one value is true. This is also the case with several values. If all values are false, the OR operator will return false.
+
+The NOT (!) operator only acts on one boolean value and it basically just inverts it. If 'A' is true, it will become false. If it is false, NOT A will become true. 
+
+E.g.
+
+const age = 16;
+
+A: age is >= 20 (false)
+B: age is < than 30 (true)
+
+!A (NOT A) = true (inverts boolean value)
+
+A(false) && B(true) = false
+
+A(false) || B(true) = true
+
+!A(true) && B(true) = true
+
+A(false) || !B(false) = false
