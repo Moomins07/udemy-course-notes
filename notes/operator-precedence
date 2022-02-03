@@ -1,0 +1,17 @@
+Operator precedence determines how operators are parsed concerning each other. Operators with higher precedence become the operands of operators with lower precedence.
+
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
+
+
+Important to note that grouping (paranthesis) will always be of highest precedence and will run first.
+
+E.g. const averageAge = 46 + 19 / 2 
+
+The above will not give the correct result as 
+division '/' has a higher precedence than addition '+'. Therefore it will divide FIRST and THEN addition.
+
+We can correct this by using paranthesis to greaten the precedence. 
+
+E.g const averageAge = (46 + 19) / 2 
+
+46 + 19 will now run first as it is within paranthesis, followed by divide by 2.

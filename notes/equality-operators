@@ -1,0 +1,46 @@
+Just like comparison operators, it will return a true or a false value(a boolean value).
+
+The strict equality operator(===) does not perform type coercion and so it only returns true when both values are exactly the same.
+
+const age = 18;
+if (age === 18) console.log(`You just become an adult.`);
+
+Number 18 is the same as Number 18 so the if statement's condition is true.
+
+On the other hand, there is the loose equality operator(==) which does perform type coercion.
+
+    E.g. `18` == 18 will return true even though we are comparing a string to a number.
+
+ User input using prompt() stores numbers as a string, which means strict equality operators cannot be used unless the prompt method is wrapped in the Number() function to convert numbers from strings to number datatype.
+
+ 
+
+ Also covered else...if statements.
+ else if statement is an additional block of code that can be placed inbetween an if and an else statement so that other conditions can be checked.
+
+E.g.
+
+if(favouriteNumber === 23) {
+    console.log(`Cool, 23 is an amazing number!`);
+
+} else if (favouriteNumber === 7) {
+    console.log(`7 is also a cool number!`)
+
+} else if (favouriteNumber === 9) {
+    console.log(`9 is a great number.`)
+
+} else {
+    console.log(`Number is not 23 or 7.`)
+
+
+
+There is also the 'different' loose/strict equality operator (!= & !==).
+This comparison operator checks if the value is different or NOT the same as.
+
+E.g.
+
+if (favouriteNumber !== 23) console.log(`Why not 23?`);
+
+If favouriteNumber is NOT 23, this returns true and runs the block of code.
+
+If favouriteNumber is 23, this returns false.

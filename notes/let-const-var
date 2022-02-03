@@ -1,0 +1,16 @@
+let
+
+Declaring a variable using 'let' allows that variable to be re-assigned/mutated.
+E.g. let x = 'changeme'
+         x = 42;
+x was assigned the string value of 'changeme',
+x was then mutated/reassigned the value of 42, a number. 'let' should only be used if we know that the variable will be reassigned at some point during our program.
+
+
+const
+
+Declaring a value using const does not allow a variable to be re-assigned of mutated. 'const' should be used by default when we are sure that a variable's value will remain the same throughout our program. This reduces the change of bugs in our code. 
+
+var
+
+'var' is an outdated syntax that was used to declare variables before ES6. It should be avoided as it no longer serves a purpose with the addition of let and const.

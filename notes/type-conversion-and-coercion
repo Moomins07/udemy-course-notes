@@ -1,0 +1,47 @@
+--------------------
+type conversion
+--------------------
+
+Type conversion is when we manually convert from one data type to another.
+
+For example, we can type convert a string to a number using the built-in Number function Number().
+
+
+const inputYear = '1991' (1991 here is a string)
+console.log(inputYear + 18); will return 199118.
+
+Number(inputYear) converts inputYear from a string to a number.
+
+const inputYear = '1991';
+console.log(Number(inputYear) + 18); will return the number 2009.
+
+
+Alternatively, we can type convert a number to a string using the built-in String function String().
+
+console.log(String(23)) will return 23 as a string.
+
+--------------------
+type coercion
+--------------------
+
+Type coercion is when JS automatically converts a data type behind the scenes.
+
+Type coercion happens whenever an operator is dealing with 2 values of different types. JS will then convert one of the values to match the other value to allow the operation to execute.
+
+E.g. console.log(`I am ` + 23 + ` years old`);
+returns `I am 23 years old` as a string.
+
+In JS, the type operator that we use here triggers a cocercion to strings, so whenever there is an operation between a string and a number, the number will be converted to a string. 
+
+The plus (+) operator will convert numbers to strings. The same occurs in template literals, it will also convert number values to strings. Thanks to type coercion, we do not have to type the String() function every time.
+
+However, we can see the opposite effect when using the minus operator (-).
+
+console.log(`23` - `10` - 3); returns 10 as a number, not a string.
+
+This is because the minus operator converted the strings to numbers and performed the sum of  23 - 10 - 3 = 10.
+
+Multiply (*) and divide (/) will also convert strings to numbers.
+
+console.log(`23` * `2`); returns 46 as a number.
+console.log(`23` / `2`); returns 11.5 as a number.

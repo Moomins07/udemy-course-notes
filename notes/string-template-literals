@@ -1,0 +1,23 @@
+A string stores a series of characters using quotations. ('"`).
+
+A template literal allows for variables to be included in a string whilst maintaining clear and readable code.
+
+E.g. Without the use of template literals:
+
+const jonas = "I'm " + firstName + ', a ' + (year - birthYear) + ' years old ' + job + '!';
+console.log(jonas);
+
+E.g. With template literals:
+
+const jonasNew = `I'm ${firstName}, a ${year - birthYear} years old ${job}!`;
+console.log(jonasNew);
+
+
+The string must begin and end using backticks (`) if it is to use template literals. 
+Template literals are added to the string using ${}.
+
+Template literal strings do not need to use \n\ for multi-lined strings. Instead, a template literal just needs to use the return key.
+
+E.g. console.log(`String
+multiple
+lines`);

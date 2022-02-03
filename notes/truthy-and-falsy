@@ -1,0 +1,43 @@
+--------------
+5 falsy values 
+--------------
+
+Falsy values are values that are not exactly false but will become false when we try to convert them into a boolean. In JS, there are only 5 falsy values:
+
+0, '', undefined, null, NaN
+
+All of these 5 values will be converted to false when we attempt to convert them to a boolean. They are not exactly false initially but they will become when they are converted to a boolean.
+
+Everything else will be converted to truthy.
+
+
+In practice, the conversion to boolean is always implicit, not explicit. In other words, it is always type coercion that JS does automatically behind the scenes. 
+
+Type coercion occurs in booleans in 2 scenarios.
+First when using logical operators.
+Second, in a logical context. For example, in the condition of an if...else statement.
+
+E.g.
+
+const money = 0;
+if (money) {
+    console.log(`Don't spend it all.`);
+} else {
+    console.log(`You should get a job.`);
+}
+
+In the logical context of this if...else statement's condition (money), JS will try to coerce any value into a boolean to test if the condition is true or false. This is done by using the truthy or falsy values.
+
+money = 0 // 0 is a falsy value and so therefore the condition returns false. The if block is skipped and the else block of code is executed.
+
+
+Another example of truthy/falsy values in a logical context.
+
+let height;
+if (height) {
+    console.log('YAY! Height is defined!')
+} else {
+    console.log('Height is undefined.')
+}
+
+height is undefined // undefined is a falsy value and so therefore the condition returns false. The if block is skipped and the else block of code is executed.

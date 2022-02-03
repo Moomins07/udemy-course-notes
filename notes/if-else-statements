@@ -1,0 +1,17 @@
+We can make decisions using code, using the if...else statement. 
+
+This is written as:
+
+if (condition) {
+
+    code to run;
+
+} else {
+
+    code to run;
+
+}
+
+The condition will return true or false(boolean) using operators. If the condition is true, the code within the curly brackets {} will run.
+
+If the condition returns false, JS will skip the if... block of code and will run the else... block of code. If an else... statement is missing and the if... statement returns false, no code will be executed.
