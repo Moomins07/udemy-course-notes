@@ -335,8 +335,9 @@ switch (day) {      // day === `monday` if true code executed.
     default:
         console.log(`Not a valid day!`);
 }
-*/
 
+
+// switch statement re-written below as if...else statement.
 const day = 'wednesday';
 
 if (day === `monday`) {
@@ -351,3 +352,21 @@ if (day === `monday`) {
 } else if (day === `saturday` || day === `sunday`) {
     console.log(`Enjoy the weekend!`);
 } else console.log(`Not a valid day!`);
+
+
+------------------------------
+// Statements and Expressions
+------------------------------
+*/
+
+3 + 4
+1991
+true && false && !false
+
+if (23 > 10) {
+    const str = `23 is bigger`;
+}
+
+console.log(`I'm ${2037 - 1991} years old`);
+
+// Refer to notes 'statements and expressionf or my context.

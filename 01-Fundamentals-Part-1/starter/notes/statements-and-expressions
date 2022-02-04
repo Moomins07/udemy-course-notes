@@ -1,0 +1,48 @@
+---------------
+Expression
+---------------
+
+An expression is a piece of code that produces a value.
+For example: 
+3 + 4 is an expression because it produces a value.
+
+1991 is also an expression because this will also produce a value in JS. (1991 as a number datatype)
+
+true && false && !false is also an expression as it will produce a boolean value.
+
+---------------
+Statements
+---------------
+
+A statement is a larger piece of code that is executed and which does not produce a value on its own.
+We can compare this with normal spoken language. 
+For example, a statement is like a complete sentence and expressions are like the words that make up the sentence.
+
+We write our whole program as a sequence of actions and these actions are statements. E.g. An if...else statement.
+
+if (23>10) {
+    const str = `23 is bigger`;
+}
+
+The if...else statement itself does not produce a value, in this case it declares this variable called `str` and that's it. It performs some actions, in this case declaring a variable but it does not produce a value.
+
+However, the string itself within the if statement IS an expression as the variables holds the value of a string. `23 is bigger`.
+
+Expressions produce values. Statements are like full sentences that translate our actions, so like the actions that we want our program to perform.
+
+
+const str = `23 is bigger`;
+|__________________________|
+          statement
+            |______________|
+               expression
+
+
+Whenever something ends with a semi-colon that's then a statement. It's like a complete sentence.
+
+A template literal is a good example of this.
+console.log(`I'm ${2037 - 1991} years old);
+
+${2037 - 1991} returns a value and is the expression that is inserted into the string via template literal. 
+
+The statement is: console.log(`I'm ${2037 - 1991} years old);
