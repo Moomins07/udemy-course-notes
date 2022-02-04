@@ -134,9 +134,9 @@ if (birthYear <= 2000) {
 
 console.log(century);
 
-
-
-
+--------------------------
+// CODING CHALLENGE 1/2
+--------------------------
 const markWeight = 78;
 const markHeight = 1.69;
 
@@ -157,8 +157,9 @@ if (markBMI > johnBMI) {
     console.log(`John's BMI(${johnBMI}) is higher than Mark's!`)
 }
 
-
-// type conversion
+--------------------
+// TYPE CONVERSION
+--------------------
 const inputYear = '1991';
 console.log(Number(inputYear), inputYear);
 console.log(Number(inputYear) + 18);
@@ -168,7 +169,9 @@ console.log(typeof NaN);
 
 console.log(String(23));
 
-// type coercion
+--------------------
+// TYPE COERCION
+--------------------
 console.log(`I am ` + 23 + ` years old`);
 console.log(`23` - `10` - 3);
 console.log(`23` * `2`);
@@ -178,7 +181,9 @@ let n = '1' + 1;
 n = n - 1;
 console.log(n);
 
-
+--------------------
+// TRUTHY AND FALSY
+--------------------
 
 // 5 falsy values: 0, '', undefined, null, NaN
 
@@ -201,7 +206,9 @@ if (height) {
     console.log('Height is undefined.')
 }
 
-
+--------------------
+// EQUALITY OPERATORS
+--------------------
 
 const age = 18;
 if (age === 18) console.log(`You just became an adult. (strict)`);
@@ -234,7 +241,9 @@ if (favouriteNumber === 23) {
 
 if (favouriteNumber !== 23) console.log(`Why not 23?`);
 
-
+--------------------
+// LOGICAL OPERATORS
+--------------------
 
 const hasDriversLicense = true; // A
 const hasGoodVision = true; // B
@@ -262,6 +271,9 @@ if (hasDriversLicense && hasGoodVision && !isTired) {
 }
 
 
+--------------------
+// CODING CHALLENGE #3
+--------------------
 
 const dolphinsAvgScore = Math.round((96 + 108 + 102) / 3)
 console.log(dolphinsAvgScore);
@@ -275,7 +287,10 @@ if (dolphinsAvgScore > koalasAvgScore) {
     console.log(`Dolphins and Koalas draw!`)
 } else
     console.log(`Koalas win with an average score of ${koalasAvgScore}!`);
-*/
+
+
+
+
 
 const dolphinsAvgScoreBonus1 = Math.round((97 + 112 + 86) / 3);
 const koalasAvgScoreBonus1 = Math.round((109 + 95 + 80) / 3);
@@ -290,3 +305,49 @@ if (dolphinsAvgScoreBonus1 >= 100 && dolphinsAvgScoreBonus1 > koalasAvgScoreBonu
     console.log(`It's a draw!`)
 } else
     console.log("Noone wins the trophy!")
+
+    
+--------------------
+// SWITCH STATEMENT
+--------------------
+
+const day = `thursday`;
+
+switch (day) {      // day === `monday` if true code executed.
+    case `monday`:
+        console.log(`Plan course structure.`);
+        console.log(`Go to coding meetup.`)
+        break;
+    case `tuesday`:
+        console.log(`Prepare theory videos.`);
+        break;
+    case `wednesday`:
+    case `thursday`:
+        console.log(`Write code examples.`);
+        break;
+    case `friday`:
+        console.log(`Record videos.`);
+        break;
+    case `saturday`:
+    case `sunday`:
+        console.log(`Enjoy the weekend!`);
+        break;
+    default:
+        console.log(`Not a valid day!`);
+}
+*/
+
+const day = 'wednesday';
+
+if (day === `monday`) {
+    console.log(`Plan course structure.`);
+    console.log(`Go to coding meetup.`);
+} else if (day === `tuesday`) {
+    console.log(`Prepare theory videos.`);
+} else if (day === `wednesday` || day === `thursday`) {
+    console.log(`Write code examples.`);
+} else if (day === `friday`) {
+    console.log(`Recording videos.`);
+} else if (day === `saturday` || day === `sunday`) {
+    console.log(`Enjoy the weekend!`);
+} else console.log(`Not a valid day!`);
