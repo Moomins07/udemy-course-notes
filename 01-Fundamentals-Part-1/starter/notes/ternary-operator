@@ -1,0 +1,35 @@
+A ternary operator allows us to essentially write an if...else statement in one line of code.
+    E.g.
+
+const age = 15;
+age >= 18 ? console.log(`I like to drink wine.`) : console.log(`I like to drink water.`);
+
+age >= 18(condition) ? (code to execute after ?) console.log(`xyz`) : (else) console.log(`zyx`);
+
+The conditional operator(ternary) is called ternary operator because it has 3 parts: the condition, the if part and then the else part.
+
+The ternary operator, being an operator, returns a value and so therefore is an expression.This means that we can assign the value that the ternary operator returns to a variable.
+
+An example of a more commonly used ternary operator below.
+
+const age = 15;
+const drink = age >= 18 ? `wine` : `water`;
+console.log(drink);
+
+If were to replicate this ternary operator as an if...else statement, we must declare the variable outside of the statement. Like so:
+
+let drink2;
+if (age >= 18) {
+    drink2 = `wine`;
+} else {
+    drink2 = `water`;
+}
+
+
+We must declare the variable outside of the statement if/else blocks because any variable that we define inside of a block is not available outside.
+
+As a ternary operator is an expression, we can insert those expressions in template literals.
+
+console.log(`I like to drink ${drink}`);
+
+Ternary operators are not thought as a replacement to if else statements. We still need if else statements for bigger blocks of code that we need to execute based on a condition. The ternary operator is perfect when we just need to take a quick decision like in the example aboves.

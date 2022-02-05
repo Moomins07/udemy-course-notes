@@ -1,0 +1,72 @@
+---------------------------
+History of JavaScript
+---------------------------
+
+1995 //
+
+Quickly after the invention of the internet and the first web browsers were developed, developers wanted to start making websites more interactive. In other words, they wanted a programming language for the browser. In 1995, the netscape navigator, which at the time was the dominant browser, hired a guy called Brendan Eich to develop the very first version of JavaScript in just 10 days. It was called Mocha but it already had the fundamental features that modern Js had today. 
+
+
+1996 //
+
+Mocha changed its name to LiveScript which was then shortly changed again to JavaScript in order to attract Java developers. However, JavaScript has nothing to do with Java, they are two very different languages.
+
+Microsoft launched Internet Explorer which basically copied JavaScript from NetScape, calling it JScript. We now had two very similar competing languages. With the internet becoming more popular, people realised that they needed to standardise JavaScript, so the language was submitted to an independent standard organisation called Ecma.
+
+
+1997 //
+
+Ecma released ECMAScript 1 (ES1), the first official standard for JavaScript. With this, every browser could implement the same standard JavaScript. In the real world, we use the term ECMAScript to refer to the standard while JavaScript is used when we talk about the language in practice as it's implmemented in browsers.
+
+
+2009 //
+
+After a lot of complications and disagreements about where the language should be headed. ES5 (ECMAScript 5) is released with a lot of great new features. 
+
+
+2015 // 
+
+The much awaited new version ES6/ES2015 was launched in June, 2015. This was the single biggest update to the language ever. It contained a ton of new, exciting features. This was particularly a big deal to the web dev community as a whole. ES2015 is the official name of this version of JS, but most people just call it ES6. ES6 was named ES2015 officially because ECMAScript changed to an annual release cycle in order to ship less features per update.
+
+
+2016 + //
+Release of ES2016, ES2017, ES2018 etc.
+
+
+There is one particularity about javaScript releases which is pretty unique for any programming language, which is backward compatibility all the way to ES1. The modern JavaScript engine is still able to run/understand code from 1997. There is almost never anything removed from the language to ensure backward compatibility and that the web does not break.
+
+- Old features are never removed.
+- Not really new versions, just incremental updates (released).
+- Websites keep working forever!
+
+
+It is because of this however that JS contains various 'bugs' that require work arounds through the use of morden JS. The initial goal of JS was to just add some simple dynamics to web pages, not to write whole web applications in the browser like we do today.
+
+
+How to use modern JavaScript today // 
+
+Development phase:
+When you're building the site, to ensure you can use the latest JS features during this phase, simply use the most up-to-date version of Google Chrome. This will ensure that all of the features shown during the course will work.
+
+Production phase:
+When the web application is finished, you deploy it on the internet and it's the running on user's browsers. This is where problems may appear as we cannot control which browser the user uses and we cannot assume that all our users use the latest browsers. The solution to this problem is to basically convert these modern JS versions back to ES5 using a process called transpiling and also polyfilling. We will use a tool called Babel later in the course to transpile our code. We won't need it for now as we're using the most up-to-date browser. Transpiling back to ES5 is only necessary after your app is developed and you want to ship it to users.
+
+
+ES5 is fully supported in all browsers today, all the way down to IE 9 from 2011. We can assume that ES5 is safe to use which is why use it as a target for transpiling.
+
+ES6 > ES2020 are all supported in modern browsers and we usually refer to all of these modern versions together as ES6+. Altogether they are "modern JS".
+It is in ES6+ where transpiling comes in as it is not safe to assume that all of our users are using modern browsers and we do not want to break our app.
+
+
+ESNext //
+
+Future versions of the language (new feature proposals that reach 'stage 4'). Most browsers start implementing new features even before they enter the official ECMAScript specification. That's possible because as new features are proposed, they have to go through four stages. Starting at stage 1 where they are first submitted all the way to stage 4 at which point they enter the language officially. However, when a feature is at stage 3, browsers can be pretty sure that it will eventually pass to stage 4, so they begin implementing that feature whilst still in stage 3.
+
+
+Modern JavaScript from the beginning //
+
+3 reasons why we should not forget about older JavaScript code:
+
+- You will better understand how JavaScript actually works
+- Many tutorials and code you find online today are still in ES5.
+-When working on old codebases, these will be written in ES5.

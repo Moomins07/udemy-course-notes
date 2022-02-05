@@ -357,7 +357,7 @@ if (day === `monday`) {
 ------------------------------
 // Statements and Expressions
 ------------------------------
-*/
+
 
 3 + 4
 1991
@@ -369,4 +369,38 @@ if (23 > 10) {
 
 console.log(`I'm ${2037 - 1991} years old`);
 
-// Refer to notes 'statements and expressionf or my context.
+// Refer to notes 'statements and expressions' for more context.
+
+------------------------------
+// Ternary Operator
+------------------------------
+
+
+const age = 23;
+age >= 18 ? console.log(`I like to drink wine.`) : console.log(`I like to drink water.`);
+
+const drink = age >= 18 ? `wine` : `water`;
+console.log(drink);
+
+let drink2;
+if (age >= 18) {
+    drink2 = `wine`;
+} else {
+    drink2 = `water`;
+}
+console.log(drink2);
+
+
+console.log(`I like to drink ${age >= 18 ? `wine` : `water`}`);
+
+------------------------------
+// Coding Challenge #4
+------------------------------
+
+const bill = 430;
+
+const tip = bill >= 50 && bill <= 300 ? bill * 15 / 100 : bill * 20 / 100;
+
+console.log(`The bill was ${bill}, the tip was ${tip}, and the final value was ${bill + tip}.`)
+*/
+
