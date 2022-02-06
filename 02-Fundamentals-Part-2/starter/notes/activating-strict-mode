@@ -1,0 +1,36 @@
+Strict mode is a special mode that we can activate in JavaScript which makes it easier for us to write secure JavaScript code.
+
+To activate strict mode, we must type the following string at the beginning of the script:
+'use strict';
+
+This statement *must* be the very first statement in the script. Any code before this statement and strict mode will not be activated. We can also activate strict mode for a specific function or a specific block but it's unnecessary.
+
+Strict mode makes it easier for developers to avoid accidental errors, making it less likely that we will introduce bugs into our code. This is for 2 reasons:
+
+Firstly, strict mode forbids us from doing certain things.
+
+Secondly, it will create visible errors in certain situations, which without strict mode, JavaScript would simply fail silently without letting us know that we had made a mistake.
+
+
+A great example of this is below.
+
+
+let hasDriversLicense = false;
+const passTest = true;
+
+if (passTest) hasDriverLicense = true;
+
+if (hasDriversLicense) console.log('I can drive :D');
+
+
+In the if statement (passTest), we have intentionally mispelled the variable hasDriverLicense and forgot the 's' after 'Driver'. This creates a new variable rather than recalling hasDriversLicense. As JavaScript creates a new variable, it does not detect that there is an error and simply outputs nothing to our console.
+
+
+However, upon turning on strict mode, JavaScript does in fact detect the error and informs us that the variable hasDriverLicense is not defined.
+
+
+Strict mode also introduces a short list of variable names that are reserved for features that might be added to the language later. E.g. 
+
+const interface = 'x'; (Strict mode reserved word // 'interface' is reserved.)
+
+Another example is 'private' which is also a reserved variable name.
