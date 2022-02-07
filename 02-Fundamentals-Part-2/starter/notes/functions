@@ -1,0 +1,47 @@
+Functions are blocks of code that we can continuously re-use in our code. Similarly to variables except for entire chunks of code. A variable holds a value, a function holds one or more complete lines of code.
+
+For example:
+
+function logger() {
+    console.log(`My name is Jonas`)
+}
+
+logger();
+
+The above allows us to continuously re-use the function body code (console.log) by invoking the function logger().
+
+Using a function is also referred to as invoking the function, running the function or calling the function.
+
+
+Everytime we call the function, the code will be executed. 
+
+logger();
+logger();
+logger();
+
+Will return: console.log(`My name is Jonas`) x3
+
+
+Functions can do a lot more than simply reusing a line of code as we did in the example above. Usually when we write functions, we pass data into a function and additionally a function can return data as well, which means to give us data back that we can use for something else in the program/code.
+
+To summarise, a function not only reuses a piece of code but can also receive data dn return data back.
+
+We can think of functions like machines. Imagine a food processor, we put food into the processor, the processor does something to our food(function body), in the end the food processor returns the processed food.
+
+We can add 'parameters' to a function inside of the brackets next to the function name. Parameters are like variables that are specific only to this function and they will be defined once we call the function. Parameters can be thought of as empty spaces that we still need to fill out when we are writing the function, and when we call that function, we fill the 'blank spaces' by passing in the real, specific values that will then be assigned to the parameres.
+
+E.g.
+
+function fruitProcessor(apples, oranges) {
+    console.log(apples, oranges);
+    const juice = `Juice with ${apples} apples and ${oranges} oranges.`
+    return juice;
+}
+
+fruitProcessor(5, 0);
+
+
+(apples, oranges) are our 'blank spaces'.
+
+When we call that function, we fill in those 'blank spaces' by passing in a specific value, in this case (5, 0)
+These actual values (5, 0) are called the arguments of that function.
