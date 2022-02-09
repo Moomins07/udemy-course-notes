@@ -1,0 +1,7 @@
+A function declaration is a function that has been declared as a function using the function keyword. In the same way that we would declare a variable. For example:
+
+function calcAge1(birthYear) {
+    const age = 2037 - birthYear; // Calculate age first
+    return age; // And then we return that value
+}
+

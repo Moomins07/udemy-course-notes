@@ -1,4 +1,4 @@
-Functions are blocks of code that we can continuously re-use in our code. Similarly to variables except for entire chunks of code. A variable holds a value, a function holds one or more complete lines of code.
+Functions are blocks of code that we can continuously re - use in our code.Similarly to variables except for entire chunks of code.A variable holds a value, a function holds one or more complete lines of code.
 
 For example:
 
@@ -8,29 +8,29 @@ function logger() {
 
 logger();
 
-The above allows us to continuously re-use the function body code (console.log) by invoking the function logger().
+The above allows us to continuously re - use the function body code(console.log) by invoking the function logger().
 
 Using a function is also referred to as invoking the function, running the function or calling the function.
 
 
-Everytime we call the function, the code will be executed. 
+Everytime we call the function, the code will be executed.
 
-logger();
+    logger();
 logger();
 logger();
 
 Will return: console.log(`My name is Jonas`) x3
 
 
-Functions can do a lot more than simply reusing a line of code as we did in the example above. Usually when we write functions, we pass data into a function and additionally a function can return data as well, which means to give us data back that we can use for something else in the program/code.
+Functions can do a lot more than simply reusing a line of code as we did in the example above.Usually when we write functions, we pass data into a function and additionally a function can return data as well, which means to give us data back that we can use for something else in the program / code.
 
 To summarise, a function not only reuses a piece of code but can also receive data dn return data back.
 
-We can think of functions like machines. Imagine a food processor, we put food into the processor, the processor does something to our food(function body), in the end the food processor returns the processed food.
+We can think of functions like machines.Imagine a food processor, we put food into the processor, the processor does something to our food(function body), in the end the food processor returns the processed food.
 
 We can add 'parameters' to a function inside of the brackets next to the function name. Parameters are like variables that are specific only to this function and they will be defined once we call the function. Parameters can be thought of as empty spaces that we still need to fill out when we are writing the function, and when we call that function, we fill the 'blank spaces' by passing in the real, specific values that will then be assigned to the parameres.
 
-E.g.
+    E.g.
 
 function fruitProcessor(apples, oranges) {
     console.log(apples, oranges);
@@ -44,4 +44,49 @@ fruitProcessor(5, 0);
 (apples, oranges) are our 'blank spaces'.
 
 When we call that function, we fill in those 'blank spaces' by passing in a specific value, in this case (5, 0)
-These actual values (5, 0) are called the arguments of that function.
+These actual values(5, 0) are called the arguments of that function.
+
+However, when we run the function as it is, it only returns
+5 0 in the console, and not the const 'juice' that we created within the function. To print 'juice' to the console, we must first 'capture' the value that is returned within that function by saving it in a variable. 
+See code below:
+
+function fruitProcessor(apples, oranges) {
+    console.log(apples, oranges);
+    const juice = `Juice with ${apples} apples and ${oranges} oranges.`
+    return juice;
+}
+
+fruitProcessor(5, 0);
+
+const appleJuice = fruitProcessor(5, 0);
+console.log(appleJuice);
+
+
+To break this down and summarise:
+We called the fruitProcessor function with 2 arguments 5 and 0. These arguments are the specific, actual values of the functions parameters, which are 'apples' and 'oranges'.
+When the function is running now, 'apples' in the console.log will be 5, and oranges 0. 
+We then used these values via template literal to build the 'juice' string. We then returned that value from the function. What that means is that the result of calling the function 'fruitProcessor' will be the juice value that was just returned.
+
+We then need to save that value somewhere, we need to capture it, and we do that by 'saving' it into the 'appleJuice' variable. Then we can just simply console.log that value via the variable it is saved in.
+
+We also could have directly logged the result to the console without saving the value to a variable.
+(console.log(fruitProcessor(5, 0))
+
+
+As we can continuously recall functions, we can change the arguments and keep saving the changed values in a different variable. For example, we could do the following:
+
+const appleOrangeJuice = fruitProcessor(2, 4);
+
+(2, 4) will now be passed through the function parameters (apples, oranged) this time. We have now saved the returned values using (2, 4) in appleOrangeJuice.
+
+Reminder: The blank spaces in fruitProcessor(apples, oranges) are the paramters. We fill in those blank spaces using our 'arguments' once we call that function.
+
+Not all functions need to return something and not all functions need to accept parameters like our fruitProcessor(apples, oranges).
+
+It is more common for functions to use parameters than not. Normally, a function that does not use paramters is used to just run a block of code repeatedly.
+
+Our function 'logger()' for example, does not produce a value because we don't return anything from the function. (It just console.logs a string) That is also why we did not save the result of the function to a variable, as it does not produce any result. 
+
+Functions allow us to write more maintainable code, because with functions, we can create reuseable chunks of code rather than having to manually write the same code over and over again. Functions reinfornce an important principle of clean code that is "Don't repeat yourself" (DRY).
+
+The functions used in this lecture are function declarations because we used the function keyword to declare a function. In the same way that we declare a variable.
