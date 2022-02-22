@@ -5,3 +5,21 @@ function calcAge1(birthYear) {
     return age; // And then we return that value
 }
 
+A function expression is a function that is not given a name but instead stored within a variable so that we can recall the value that is returned by that function. E.g.
+
+const calcAge2 = function (birthYear) {
+    return 2037 - birthYear;
+}
+
+const age2 = calcAge2(1991);
+
+
+The above anonymous function is stored in calcAge2, which will not return a value when invoked. We then store that function in the variable age2.
+
+
+
+The main practical difference between function declarations and function expressions is that we can call function declarations before they are defined in the code, whereas expressions must be defined before they can be called.
+
+This occurs because of a process called 'hoisting' that will be covered later in the course.
+
+The use of declarations or expressions is preference.

@@ -60,8 +60,13 @@ function calcAge1(birthYear) {
 const age1 = calcAge1(1991); //We capture that value by saving the function in a variable.
 console.log(age1);
 
+
 //[EXPRESSIONS]
 
 const calcAge2 = function (birthYear) {
     return 2037 - birthYear;
 }
+
+const age2 = calcAge2(1991);
+
+console.log(age1, age2);
