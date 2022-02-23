@@ -1,4 +1,4 @@
-Functions are blocks of code that we can continuously re - use in our code.Similarly to variables except for entire chunks of code.A variable holds a value, a function holds one or more complete lines of code.
+Functions are blocks of code that we can continuously re - use in our code.Similarly to variables except for entire chunks of code. A variable holds a value, a function holds one or more complete lines of code.
 
 For example:
 
@@ -79,7 +79,7 @@ const appleOrangeJuice = fruitProcessor(2, 4);
 
 (2, 4) will now be passed through the function parameters (apples, oranged) this time. We have now saved the returned values using (2, 4) in appleOrangeJuice.
 
-Reminder: The blank spaces in fruitProcessor(apples, oranges) are the paramters. We fill in those blank spaces using our 'arguments' once we call that function.
+Reminder: The blank spaces in fruitProcessor(apples, oranges) are the parameters. We fill in those blank spaces using our 'arguments' once we call that function.
 
 Not all functions need to return something and not all functions need to accept parameters like our fruitProcessor(apples, oranges).
 
