@@ -1,0 +1,38 @@
+function cutFruitPieces(fruit) {
+    return fruit * 4;
+}
+
+function fruitProcessor(apples, oranges) {
+    const applePieces = cutFruitPieces(apples);
+    const orangePieces = cutFruitPieces(oranges);
+
+    const juice = `Juice with ${applePieces} pieces of apple and ${orangePieces}  pieces of orange.`
+    return juice;
+}
+
+console.log(fruitProcessor(2, 3));
+
+
+We first created a new function that will multiply whatever is passed through the paramater by 4. We simply use 'fruit' as our empty placeholder/parameter.
+
+function cutFruitPieces(fruit) {
+    return fruit * 4;
+
+
+We then invoke cutFruitPieces in our fruitProcessor function. We have to invoke the cutFruit function twice for both parameters in fruitProcessor (apples, oranges).
+
+const applePieces = cutFruitPieces(apples);
+const orangePieces = cutFruitPieces(oranges);
+
+The result is stored in 2 separate variables, applePieces and orangePieces.
+
+console.log(fruitProcessor(2, 3));
+
+We pass (2, 3) through our fruitProcessor function. The following happens:
+
+2, 3 are passed through to our fruitProcessor function as (2 apples, 3 oranges). The cutPieces function for both apples and oranges is executed, passing the numbers (2, 3) through the (fruit) parameter and multiplying those numbers by 4. The value is then stored in the variables applePieces and orangePieces. 
+
+const juice = `Juice with ${applePieces} pieces of apple and ${orangePieces}  pieces of orange.`
+    return juice;
+
+We create a template literal and store that string/value in the variable 'juice', followed by returning that variable inside of the fruitProcessor function.
