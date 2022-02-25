@@ -1,0 +1,86 @@
+const calcAge = function (birthYear) {
+    return 2037 - birthYear;
+}
+
+const yearsUntilRetirement = function (birthYear, firstName) {
+    const age = calcAge(birthYear)
+    const retirement = 65 - age;
+
+    if (retirement > 0) {
+        console.log(`${firstName} retires in ${retirement} years`);
+        return retirement;
+    } else {
+        console.log(`${firstName} has already retired.`);
+        return -1;
+    }
+}
+
+console.log(yearsUntilRetirement(1991, 'Jonas'));
+console.log(yearsUntilRetirement(1950, 'Mike'));
+
+
+Here we are creating a simple function expression that calculates the years left until retirement if the retirement age is 65.
+
+To begin with, a function expression was created to calculate the persons age if the current year were 2037. The function calculates the difference between 2037 and the birth year. We save the value this function returns into the variable 'calcAge'.
+
+We then create the yearsUntilRetirement function expression that uses two parameters, birthYear and firstName. Followed by the creation of our variable 'age' that invokes the calcAge function that uses that parameter birthYear.
+
+Note // Even though we have used birthYear in our calcAge function AND yearsUntilRetirement function, the parameters have nothing to do with one another. They are separate and unique to each function.
+
+After the calcAge function is invoked, the variable 'retirement' is executed, of which calculates the difference between our retirement age of 65 and the result of our age function.
+
+In the example above, we use the argument 1991 for our parameter. calcAge would perform the following: 
+
+2037 - 1991 = 46
+
+const retirement would then do the following:
+
+65 - 46 = 19.
+
+
+Furthermore, we added decision making. This is because the result would become negative if the person had already retired. E.g. If the person is 67 years old, it would return the result of -2 years until retirement.
+
+Our simple IF statement first checks if the value stored in the variable 'retirement' is greater than 0. If this is true, it will run a template literal that displays the years until retirement and the persons name.
+
+If the value in 'retirement' is less than 0, it will simply execute our else block which returns -1 (-1 is used by programmers to inform us that the result is negative essentially) in the console and uses a template literal to inform us that this person has already retired. 
+
+console.log(yearsUntilRetirement(1991, 'Jonas'));
+returns the following:
+Jonas retires in 19 years. (19)
+
+
+console.log(yearsUntilRetirement(1950, 'Mike'));
+returns the following:
+Mike has already retired. (-1)
+
+
+EXTRA NOTES //
+
+Remember that 'return' immediately terminates a function execution (the functions *returns*) and/or block of an if statement. Code written after 'return' will not execute.
+
+
+// Function Declaration:
+
+function calcAge(birthYear) {
+    return 2037 - birthYear;
+}
+
+Function declarations can be used before they are declared in the code.
+
+// Function expression:
+
+const calcAge = function(birthYear) {
+    return 2037 - birthYear;
+}
+
+Essentially a function value stored in a variable.
+
+// Arrow function:
+
+const calcAge = birthYear => 2037 - birthYear;
+
+Great for a quick one-line function. Has no *this* keyword.
+
+
+There are three different ways of writing functions but they all work in a similar way: receive input data, transform data, and then output data. The use of the different functions is mostly preference and also circumstance.
+
