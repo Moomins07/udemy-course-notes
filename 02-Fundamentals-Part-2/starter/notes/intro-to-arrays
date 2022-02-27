@@ -1,0 +1,64 @@
+2 most important data structures in JavaScript are arrays and objects. Arrays allow us to store and manage data.
+
+const friend1 = 'Michael';
+const friend2 = 'Steven';
+const friend3 = 'Peter';
+
+
+const friends = ['Michael', 'Steven', 'Peter'];
+console.log(friends);
+
+const years = new Array(1991, 1984, 2008, 2020);
+
+
+As you can see above, an array allows us to store what would normally be 3 individual variables for 3 different names/friends undor one single data structure 'friends'.
+
+Arrays can be written using this 'literal syntax' e.g. friends = []
+
+Or arrays can be written using the 'new' keyword. e.g.
+new Array().
+
+It is more common to use the literal syntax.
+
+
+To log the first element of the array 'friends', we can do the following:
+
+console.log(friends[0]);
+
+Arrays are 'zero-based' meaning that the first element in an array is 0, not 1.
+
+console.log(friends[0]); displays Michael.
+console.log(friends[2]); displays Peter.
+
+
+console.log(friends.length); 
+
+'length' is a property and will display the exact amount of elements inside of an array. It is not zero-based, it gives us the actual and total value. We can use this property to get the last element in an array without having to manually count.
+
+
+console.log(friends[friends.length - 1]);
+
+The above line of code allows us to log the last element in an array. As .length is not zero-based, we must subtract 1 to get the last element in an array. Note that 
+[friends.length - 1] is an expression as it produces a value. JavaScript expects an expression within the square brackets [], not a statement.
+
+
+To mutate or change an element in the array, we can do the following:
+
+friends[2] = 'Jay';
+
+This will now overwrite the element [2] (Peter) with 'Jay'.
+
+Before change:
+['Michael', 'Steven', 'Peter'];
+
+After change:
+['Michael', 'Steven', 'Jay'];
+
+
+NOTE // Only primitive values are immutable. Arrays are not a primitive value, and so even though an array is declared using const, the array itself can be mutated/changed. It works this way due to how JavaScript stores things in memory.
+
+However, we cannot change the entire array at once. E.g.
+
+friends = ['Bob', 'Alice']
+
+This will produce an 'Assignment to const variable' error.
