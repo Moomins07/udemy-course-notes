@@ -62,3 +62,39 @@ However, we cannot change the entire array at once. E.g.
 friends = ['Bob', 'Alice']
 
 This will produce an 'Assignment to const variable' error.
+
+
+const jonas = [firstName, 'Schmetmann', 2037 - 1991, 'teacher', friends];
+
+Arrays expect expressions and so as you can see above, you can also use variables, number equations and also arrays with the array.
+
+You cannot do operations with arrays. E.g. friends + 10
+or friends - 10. Adding will convery the array to a string and add 10 at the end. - 10 will return NaN. You also cannot pass an array as a function argument.
+
+
+
+const years = [1990, 1967, 2002, 2010, 2018];
+
+const age1 = calcAge(years[0]);
+const age2 = calcAge(years[1]);
+const age3 = calcAge(years[years.length - 1]);
+console.log(age1, age2, age3);
+
+
+You can however run individual elements in an array through a function as an argument as shown above.
+
+The calcAge function simply takes the current year of 2037 and minuses the birth year to calculate the persons age. 
+
+calcAge(years[0]) takes the element at index of 0 (1990) and calculates 2037 - 1990.
+
+
+If we want to store the calculated ages using the calcAge function in a new array, we can do the following:
+
+const ages = [calcAge(years[0]), calcAge(years[1]), calcAge(years[years.length - 1])];
+console.log(ages);
+
+As arrays expect an expression, we can place invoked functions within the new array that will return a result at the index we place them in.
+
+We now have a new array called 'ages' that produces:
+
+[47, 70, 19]
