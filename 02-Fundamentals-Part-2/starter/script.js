@@ -157,7 +157,9 @@ const checkWinner = function (avgDolphins, avgKoalas) {
 
 checkWinner(avgDolphins, avgKoalas);
 
-*/
+---------------------
+ARRAYS INTRO
+---------------------
 
 const friend1 = 'Michael';
 const friend2 = 'Steven';
@@ -194,3 +196,39 @@ console.log(age1, age2, age3);
 
 const ages = [calcAge(years[0]), calcAge(years[1]), calcAge(years[years.length - 1])];
 console.log(ages);
+
+
+---------------------
+ARRAY OPERATIONS
+---------------------
+*/
+const friends = ['Michael', 'Steven', 'Peter'];
+
+// Add elements
+const newLength = friends.push('Jay'); //Adds to end
+console.log(friends);
+console.log(newLength);
+
+friends.unshift('John'); //Adds to beginning
+console.log(friends);
+
+
+// Remove elements
+const popped = friends.pop(); //Removes last element
+console.log(friends);
+console.log(popped);
+
+friends.shift(); //Removes first element
+console.log(friends);
+
+console.log(friends.indexOf('Steven'));
+console.log(friends.indexOf('Bob'));
+
+friends.push(23);
+console.log(friends.includes('Steven'));
+console.log(friends.includes('Bob'));
+
+
+if (friends.includes('Peter')) {
+    console.log('You have a friend called Peter');
+}

@@ -1,0 +1,81 @@
+// Add elements
+
+Firstly, we have the push method. The push method (technically a function) allows us to add an element to the end of an array. E.g.
+
+const friends = ['Michael', 'Steven', 'Peter'];
+
+friends.push('Jay');
+
+We now have: 
+['Michael', 'Steven', 'Peter', 'Jay'];
+
+The push function does return a value, which is the length of the new array. We can capture this data/value with a variable.
+
+const newLength = friends.push('Jay');
+
+newLength displays '4' in the console. The updated length of the new array.
+
+
+Secondly, we havec the unshift method. The unshift method (technically a function) allowsus to add an element to the beginning of an array. E.g.
+
+friends.unshift('John');
+
+We now have:
+['John', 'Michael', 'Steven', 'Peter', 'Jay'];
+
+THe unshift method also returns the length of the array and can also be stored in a variable to capture that value.
+
+
+// Remove elements
+
+Thirdly, we have the pop method. The pop method (technically a function) allows us to remove an element from the end of an array. (The opposite of the push method)E.g.
+
+friends.pop(); (No argument needed)
+
+We now have:
+['John', 'Michael', 'Steven', 'Peter'];
+
+The pop method also returns a value, this time it returns the removed element. We can again capture this value in a variable.
+
+
+Lastly, we have the shift method. The shift method (technically a function) allows us to remove an element from the beginning of an array. (The opposite of the unshift method) E.g.
+
+friends.shift(); (No argument needed)
+
+We now have:
+['Michael', 'Steven', 'Peter'];
+
+
+
+Furthermore, we can also use the method indexOf() to find the index of a particular element in an array. E.g.
+
+console.log(friends.indexOf('Steven'));
+
+Here we are invoking indexOf with the argument of 'Steven' with our friends array. As we have 'Steven' in our array at index of 1, the method will return the value of 1. If we try to pass an argument that does not exist. E.g. 'Bob', it will instead return -1 as JS cannot locate that element.
+
+
+//ES6 alternative to indexOf
+
+There is also a more modern/useful alternative method to indexOf called 'includes'.
+
+Instead of returning the index of an element in an array, 'includes' will return true if the element is in an array and false if it is not.
+
+console.log(friends.includes('Steven'));
+returns true as 'Steven' is in our array.
+
+console.log(friends.includes('Bob'));
+returns false as we do not have a 'Bob' in our array.
+
+
+This method uses strict equality for this check. E.g.
+
+friends.push(23);
+console.log(friends.includes('23'));
+
+Here we add the number 23 to our array, but we check for the string of 23 using the include function. This will return false as we do not have 23 as a string, but as a number.
+
+The includes method is particularly useful for writing conditionals as it returns a boolean value. E.g.
+
+if (friends.includes('Peter')) {
+    console.log('You have a friend called Peter');
+}
