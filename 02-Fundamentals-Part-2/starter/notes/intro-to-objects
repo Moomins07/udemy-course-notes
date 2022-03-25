@@ -1,0 +1,41 @@
+Up until this point, we have been using arrays as a data structure to store multiple related values in the same variable.
+
+We have another data stucture in JavaScript called 'objects'. In an object we define key value pairs, which allows us to give values in an array a name.
+
+
+const jonas = {} 
+
+We use {} curly brackets to define an object, not [] square brackets.
+
+
+const jonasArray = [
+    'Jonas',
+    'Schmedtmann',
+    2037 - 1991,
+    'teacher',
+    ['Michael', 'Peter', 'Steven']
+];
+
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Schmedtmann',
+    age: 2037 - 1991,
+    job: 'teacher',
+    friends: ['Michael', 'Peter', 'Steven']
+};
+
+Above, we now have an object called 'jonas' which contains 5 key value pairs.
+firstName, lastName etc are the keys. 'Jonas', 'Schmedtmann' are the values. We were able to assign a name to each of these values that we had in the array 'jonasArray'.
+
+Each of these keys are also called a 'property', so we would say that this object called 'jonas' has 5 properties. W.g.
+
+We have a property called firstName with the value of 'Jonas'.
+
+There are multiple ways of creating an object in JavaScript but the easiest way is to just use {} curly braces. This way of creating an object is called an object literal syntax because we are literally writing down the entire object content.
+
+
+Summary:
+
+Just like arrays, we use objects to essentially group together different variables that really belong together, such as the properties of 'jonas' that we've been working with. 
+
+The big difference between objects and arrays is that in an object, the order of the values does not matter at all when we want to retrieve them. In an array, the order that we specify elements matters a lot as that is how we access those elements. We should use arrays for more ordered data and objects for more unstructured data, and data that we want to name and retrieve from the object based on that name.

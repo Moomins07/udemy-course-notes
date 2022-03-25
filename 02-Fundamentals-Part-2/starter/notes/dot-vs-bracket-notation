@@ -1,0 +1,40 @@
+The first way of getting a property from an object is by using the dot notation. This is achieved by simply typing the object name, followed by a dot and then the property name. E.g.
+
+console.log(jonas.lastName);
+
+
+The second way that we can do this, is by using the brackets notation. E.g.
+
+console.log(jonas['lastName']);
+
+Instead of using a dot, we use [] square brackets and retrieve the value from the property 'lastName' by writing it in the square brackets as a string.
+
+The big difference between these two ways of retrieving a value from an object is that in a bracket notation, we can actually input any expression that we'd like, we don't have to explicitly write the string in the square brackets, but instead we could compute it using an operation.
+
+For example:
+
+const nameKey = 'Name';
+console.log(jonas['first' + nameKey]);
+console.log(jonas['last' + nameKey]);
+
+We create a variable the constains the string 'Name'.
+When we use bracket notation to retrieve a value from the object 'jonas', we concatenate 'first' with 'nameKey' to create 'firstName'.
+
+The same thing would not work using a dot notation. Only a bracket notation will accept an expression. Dot notation will only accept the real, final property name.
+
+When we need to first compute the property name like we did above, then of course we have to use bracket notation. In any other case, we can just use the dot notation as it is cleaner and easier to use.
+
+Note: undefined is what we get if we try to access a property within an object that does not exist.
+
+Another example below:
+
+const interestedIn = prompt('What do you want to know about Jonas? Choose between firstName, lastName, age, job and friends.')
+console.log(jonas[interestedIn]);
+
+We have stored the value of prompt in a variable called interestedIn. We then use bracket notation to check for a property in the 'jonas' object using the value that was input by the user.
+
+
+We can also add to an object using dot and bracket notation:
+
+jonas.location = 'Portugal';
+jonas['twitter'] = '@jonasschmedtmann';
