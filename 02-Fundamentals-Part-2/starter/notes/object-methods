@@ -1,1 +1,15 @@
-test
+Objects, just like arrays can hold different types of data and they can hold even arrays and can even hold objects inside of objects. As functions are just another type of value, that means we can use functions to create a key value pair in which the value is a function. We can in fact add functions to objects due to this.
+
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Schmedtmann',
+    birthYear: 1991,
+    job: 'teacher',
+    friends: ['Michael', 'Peter', 'Steven'],
+    hasDriversLicense: true
+
+    calcAge: function (birthYear) {
+        return 2037 - birthYear;
+    }
+
+    As you can see above, we have now added a new property/key called 'calcAge' which contains the key value pair of a function that returns a simple equation.

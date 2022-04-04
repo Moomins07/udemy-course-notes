@@ -266,6 +266,10 @@ const jonasArray = [
     ['Michael', 'Peter', 'Steven']
 ];
 
+---------------------
+DOT VS BRACKET NOTATION
+---------------------
+
 const jonas = {
     firstName: 'Jonas',
     lastName: 'Schmedtmann',
@@ -273,7 +277,7 @@ const jonas = {
     job: 'teacher',
     friends: ['Michael', 'Peter', 'Steven']
 };
-*/
+
 
 const jonas = {
     firstName: 'Jonas',
@@ -308,3 +312,18 @@ console.log(jonas);
 //"Jonas has 3 friends, and his best friend is called Michael"
 
 console.log(`${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}`);
+*/
+
+const jonas = {
+    firstName: 'Jonas',
+    lastName: 'Schmedtmann',
+    birthYear: 1991,
+    job: 'teacher',
+    friends: ['Michael', 'Peter', 'Steven'],
+    hasDriversLicense: true
+
+    calcAge: function (birthYear) {
+        return 2037 - birthYear;
+    }
+};
+
