@@ -1,4 +1,4 @@
-Objects, just like arrays can hold different types of data and they can hold even arrays and can even hold objects inside of objects. As functions are just another type of value, that means we can use functions to create a key value pair in which the value is a function. We can in fact add functions to objects due to this.
+Objects, just like arrays can hold different types of data, they can hold even arrays and can even hold objects inside of objects. As functions are just another type of value, that means we can use functions to create a key value pair in which the value is a function. We can in fact add functions to objects due to this.
 
 const jonas = {
     firstName: 'Jonas',
@@ -12,4 +12,64 @@ const jonas = {
         return 2037 - birthYear;
     }
 
-    As you can see above, we have now added a new property/key called 'calcAge' which contains the key value pair of a function that returns a simple equation.
+As you can see above, we have now added a new property/key called 'calcAge' which contains the key value pair of a function that returns a simple equation.
+
+Any funcction that is attached to an object is called a Method.
+
+We could not have used a function declaration here: 
+
+function calcAge(birthYear) {
+return 2037 - birthYear;
+}
+
+Will return an error inside of an object as we need an expression, not a declaration.
+
+We can invoke this object method using dot/bracket notation:
+
+console.log(jonas.calcAge(1991));
+console.log(jonas[`calcAge`](1991));
+
+Refer to dot/bracket notation notes for more info.
+
+
+The issue with invoking the object method this way is that we are violating the principle of DRY. (Don't Repeat Yourself) The property birthYear already contains the key value pair of 1991, invoking the method using the argument 1991 is repeating ourselves. 
+
+We can get around this by using the 'this' variable.
+
+calcAge: function () {
+        return 2037 - this.birthYear;
+    }
+
+Above, we have removed the parameter of birthYear and instead added this. before birthYear in the return value.
+
+'this' will point to the object that is calling the method. calcAge is within the object of 'jonas' and so therefore 'this' will refer to the 'jonas' object. 
+
+this.birthYear is referring to jonas.birthYear, which contains the key number value of 1991.
+
+Similarly, this.firstName would refer to jonas.firstName, which contains the key string value of 'Jonas'.
+
+console.log(this) will refer to the entire jonas object.
+
+We use this.birthYear instead of jonas.birthYear as using jonas.birthYear would still violate the DRY principle. By using 'this', we continue to keep our code flexible, for example, if we were to change the name of the object from 'jonas' to 'jonas2', we would then be required to change every jonas.[xxx] to jonas2.[xxx].
+
+It is always better to refer to the object itself using 'this' and not hard-code the object.
+
+
+If we want to use the returned value of an invoked function multiple times across our code, it is not efficient to invoke the function each time. Instead, we can store the returned value of the function in a new object property so that we can refer to that value without having to continuously repeat the function computations. 
+
+calcAge: function () {
+        this.age = 2037 - this.birthYear;
+        return this.age;
+    }
+
+    Above, we create a new object property called 'age' by using this.age. We then finally return this.age;
+
+    We now have a new property in 'jonas' called 'age' that is the result of the calcAge function.
+
+    Instead of using:
+    console.log(jonas.calcAge());
+
+    We can now use the following as many times as we'd like:
+    console.log(jonas.age);
+
+    To summarise, we only need to calculate the age once and store it in a property so that we can refer to whenever we'd like efficiently.

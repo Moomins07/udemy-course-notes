@@ -320,10 +320,32 @@ const jonas = {
     birthYear: 1991,
     job: 'teacher',
     friends: ['Michael', 'Peter', 'Steven'],
-    hasDriversLicense: true
+    hasDriversLicense: true,
 
-    calcAge: function (birthYear) {
-        return 2037 - birthYear;
+    // calcAge: function (birthYear) {
+    //     return 2037 - birthYear;
+    // }
+
+    // 
+
+    calcAge: function () {
+        this.age = 2037 - this.birthYear;
+        return this.age;
+    },
+
+    getSummary: function () {
+        return `${this.firstName} is a ${this.calcAge()}-year old ${jonas.job}, and he has ${this.hasDriversLicense ? 'a' : 'no'} drivers license.`
     }
 };
+
+// console.log(jonas.calcAge());
+// console.log(jonas.age);
+// console.log(jonas.age);
+// console.log(jonas.age);
+
+
+// Challenge
+
+console.log(jonas.getSummary());
+
 
