@@ -355,7 +355,7 @@ console.log(jonas.getSummary());
 ---------------------
 CODING CHALLENGE #3
 ---------------------
-*/
+
 
 const mark = {
     fullName: 'Mark Miller',
@@ -395,3 +395,12 @@ if (mark.bmi > john.bmi) {
     console.log(`${john.fullName}'s BMI (${Math.round(john.bmi)}) is higher than ${mark.fullName}'s BMI (${Math.round(mark.bmi)})`);
 };
 
+*/
+
+//console.log(`Lifting weights repetition 1`);
+
+// for loop keeps running while condition is TRUE
+for (let rep = 1; rep <= 10; rep++) {
+    console.log(`Lifting weights repetition  ${rep}`);
+
+}

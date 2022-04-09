@@ -1,0 +1,36 @@
+Loops are a fundamental aspect of every programming language because they basically allow us to automate repetitive tasks. We can use the analogy of a gym:
+
+When you go to a gym, you might lift weights, let's say that you do 10 repetitions of a weight-lifting exercise. We can represent like so:
+
+console.log(`Lifting weights repetition 1`);
+console.log(`Lifting weights repetition 2`);
+console.log(`Lifting weights repetition 3`); etc
+
+However, as you can imagine, this is clearly repetitive and is NOT flexible to change. If we were to change something, we would likely have to individually edit each line. This grossly goes against the DRY principle.
+
+
+Instead, we can create a FOR loop, which is a loop with a counter:
+Similar to an if statement, we start a for statement:
+
+The loop statement has 3 parts, first is the initial value of a counter, in this case the counter is the value that will start at number 1 and go all the way to number 10. So we create a variable called 'rep' that starts at no. 1. Note that we use 'let' here and not const as the variable will be updated and changed by the for loop. 
+
+We then use semi-colon and go to the second part. The second part of the for loop is a logical condition that is evaluated BEFORE each iteration of the loop. So each time the code in the loop is executed. 'rep' needs to be below or equal to 10 to make the condition true. If the condition is true, then the next loop iteration will run. As soon as this becomes false, the loop will stop and no more code will be executed. In each iteration of the loop, the rep counter will increase.
+
+Thirdly and lastly, we add another semi-colon, and here we update the counter after each iteration, which is necessary as without it the counter will just stay at 1 forever. We do this by using 'rep = rep + 1' (rep++). 
+
+With the loop code now written, we can add code to the statement that we would like executed.
+
+for(let rep = 1; rep <= 10; rep++) {
+    console.log(`Lifting weights repetition 1`);
+
+}
+
+We can use a template literal to update the '1' in the string according to the loop iterations. We have stored the counter in the variable 'rep', so we can do the following to make the loop more dynamic, and not hard-coded.
+
+for(let rep = 1; rep <= 10; rep++) {
+    console.log(`Lifting weights repetition ${rep}`);
+
+}
+
+And so, instead of repeating code, we have used a for loop. 
+We initialised the counter at 1, creating a new variable called 'rep' that we set at 1, as we wanted to start at repetition 1. The loop verifies before each iteration if our condition is still true (rep <=10), and if it is, it will go to the next part of the loop (rep++) amd increment rep by 1.
