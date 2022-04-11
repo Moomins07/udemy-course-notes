@@ -1,0 +1,127 @@
+One of the more common uses of a for loop is for the use in arrays.
+
+
+const jonasArray = [
+    'Jonas',
+    'Schmedtmann',
+    2037 - 1991,
+    'teacher',
+    ['Michael', 'Peter', 'Steven']
+];
+
+We can use a for loop here to loop through the array. If wanted to simply display the 5 elements of the array in the console, we can do the following:
+
+//we start the counter at 0 because arrays are zero-based and start at 0.
+
+or (let i = 0; i < 5; i++) {
+    console.log(jonas[i])
+}
+
+However, the problem with this at that the counter is hard-coded to stop before the counter reaches 5. ( i < 5 ). So if we were to add another element to our array, it will not be displayed in the console.
+
+To solve this, we must change the condition in our loop to be dynamic to account for any additions to the array. We do this by using the array method .length.
+
+for (let i = 0; i < jonas.length; i++) {
+    console.log(jonas[i])
+}
+
+Above, we only used the loop to read values from an array. To further this, we can create a new array that will display the typesof data in our jonas array.
+
+Firstly, we create an empty array called types.
+
+const = types[]
+
+We then return to the loop we created for our jonas array to add the following:
+
+types[i] = typeof jonas[i];
+
+With 'i' being dynamic, we know that types[i] starts at 0 and continues until jonas.length has been reached. E.g. 
+
+types[0] = typeof jonas[0]
+types[1] = typeof jonas[1]
+... etc.
+
+We now have an array called types that displays the following:
+
+0: "string"
+1: "string"
+2: "number"
+3: "string"
+4: "object"
+5: "boolean"
+
+
+types[i] = typeof jonas[i]; // this is one way of adding elements to an array.
+
+We can also use the push method.
+
+    types.push(typeof jonas[i]);
+
+The result will be exactly the same.
+It's important that we add the new element to the end of the array and not the beginning. Push must be used here, not unshift.
+
+The above example of mostly for just for educational purposes a not a common use for a loop, below I will explore a more practical example.
+
+const years = [1991, 2007, 1969, 2020];
+const ages = [];
+
+for (let i = 0; i < years.length; i++) {
+    ages.push(2037 - years[i]);
+}
+console.log(ages);
+
+Above I wanted to use a loop to output a simple calculation for age to an array called ages.
+
+Firstly I made an array called years that contains 4 years. I then made a blank array that we would be using as storage for the calculated ages.
+
+We created a for loop that again starts a 0 and iterates in increments of 1 until it reaches the length of the years array. The executed code calculates the current year (2037 in this example) minus the years in the 'years' array one by one, individually and then pushes the result to our ages array. 
+
+------------------
+Continue and break
+------------------
+//CONTINUE
+Continue is to exit the current iteration of the loop and continue to the next one. 
+
+Break is to completely terminate the whole loop.
+
+
+for (let i = 0; i < jonas.length; i++) {
+    if (typeof jonas[i] !== 'string') continue;
+    console.log(jonas[i], typeof jonas[i]);
+}
+
+Above, we use continue to break the loop for that iteration if it is NOT a string. 
+
+(if (typeof jonas[i] !== 'string') continue;)
+
+If typeof jonas[i] is not a string, break that iteration and continue to the next.
+
+The following is output to console:
+
+Jonas string
+Schmedtmann string
+teacher string
+
+The array, boolean and number data types in our jonas array are skipped because they are NOT a string.
+
+
+//BREAK
+
+console.log('--- BREAK WITH NUMBER ---')
+for (let i = 0; i < jonas.length; i++) {
+    if (typeof jonas[i] === 'number') break;
+    console.log(jonas[i], typeof jonas[i]);
+}
+
+This time, we wanted the iteration to stop entirely and NOT continue to the next iteration once the code reaches a number.
+
+if (typeof jonas[i] === 'number') break;
+
+If typeof jonas[i] equals a number, break and stop the loop.
+
+The following is output to console: 
+
+Jonas string
+Schmedtmann string
+
+The next iteration would have been a number, and so the loop breaks and we are just left with the two strings before.
