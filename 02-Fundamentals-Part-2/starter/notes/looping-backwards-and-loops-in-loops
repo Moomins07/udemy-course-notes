@@ -1,0 +1,54 @@
+---------------------
+LOOP BACKWARDS
+---------------------
+
+
+In the previous lecture, we learned how to loop through an array from index 0 to index 4. However, in this lecture we are learning to loop through an array in reverse, from the last element in an array. This can be achieved with the following:
+
+for(i = jonas.length - 1; i >= 0; i--) {
+
+}
+
+In this loop, we need to first set i, our counter, to the last element in the array by using the .length method followed by -1. 
+(We use -1 because .length returns the total number of elements and arrays are 0-based. The .length method will return 5 if there are 5 elements in an array, but the last element is at infex of 4.)
+
+As for the condition of the loop, we now need the loop to decrement from the last element to the first element in the array(index of 0). Therefore we set i >= 0 so that the condition is true, and so that the loop breaks once the iteration meets 0.
+
+Lastly, rather than using i++ to increment by 1, we simply use i-- to decrement by 1 instead.
+
+The loop is now set to start at the last element of an array, in this case index of 4 and decrement by 1 each iteration until i = 0.
+
+
+---------------------
+LOOPS IN LOOPS
+---------------------
+
+The gym analogy. 
+
+We have 10 repetitions for a weight lifting exercise, but now we have 3 different exercises and we want to repeat each of them 5 times. A total of 15 reps, 5 for each of the 3 exercises. To do this, we will need a loop inside of a loop:
+
+for (let exercise = 1; exercise <= 3; exercise++) {
+    console.log(`------- Starting exercise ${exercise} -------`);
+
+    for (let rep = 1; rep <= 5; rep++) {
+        console.log(`Lifting weights repetition ${rep}`);
+    }
+}
+
+Firstly, we created a loop that will run for 3 iterations, each of which log a string to the console. We end up with the following:
+
+------- Starting exercise 1 -------
+------- Starting exercise 2 -------
+------- Starting exercise 3 -------
+
+We now want 5 reps under each iteration, which is accomplished by creating another loop inside of that loop. Each iteration from our exercise loop (3 total iterations), now starts an iteration from our rep loop, which runs 5 iterations (rep = 1; rep <=5).
+This results in the following:
+
+------- Starting exercise 1 -------
+ Lifting weights repetition 1
+ Lifting weights repetition 2
+ Lifting weights repetition 3
+ Lifting weights repetition 4
+ Lifting weights repetition 5
+
+The exact same then repeats for the other 2 exercise iterations.
