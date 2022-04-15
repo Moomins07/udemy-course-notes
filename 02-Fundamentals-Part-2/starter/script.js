@@ -458,7 +458,11 @@ for (let i = 0; i < jonas.length; i++) {
     if (typeof jonas[i] === 'number') break;
     console.log(jonas[i], typeof jonas[i]);
 }
-*/
+
+
+----------------------------------------
+LOOPING BACKWARDS & LOOPS IN LOOPS
+----------------------------------------
 
 const jonas = [
     'Jonas',
@@ -482,3 +486,67 @@ for (let exercise = 1; exercise <= 3; exercise++) {
         console.log(`Lifting weights repetition ${rep}`);
     }
 }
+
+----------------------------------------
+WHILE LOOP
+----------------------------------------
+
+// for (let rep = 1; rep <= 10; rep++) {
+//     console.log(`Lifting weights repetition  ${rep}`);
+
+// }
+
+let rep = 1;
+while (rep <= 10) {
+    //console.log(`WHILE: Lifting weights repetition  ${rep}`);
+    rep++
+}
+
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+
+while (dice !== 6) {
+    console.log(`You rolled a ${dice}`);
+    dice = Math.trunc(Math.random() * 6) + 1;
+    if (dice === 6) console.log(`Loop is about to end...`)
+}
+
+
+----------------------------------------
+CODING CHALLENGE #4
+----------------------------------------
+*/
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+
+const calcTip = function (bill) {
+    return bill >= 50 && bill <= 300 ? bill * 15 / 100 : bill * 20 / 100;
+}
+
+
+for (let i = 0; i <= bills.length - 1; i++) {
+    const tip = calcTip(bills[i]); //We save this to a variable to avoid repeating code
+    tips.push(tip);
+    totals.push(tip + bills[i]);
+}
+
+console.log(tips);
+console.log(totals);
+
+
+
+
+
+const calcAverage = function (arr) {            // arr argument for generic array 
+    let sum = 0;                               // Create sum variable in loop to be updated
+    for (let i = 0; i <= arr.length - 1; i++) { // Generic for loop using arr argument
+        sum += arr[i];                          // sum = sum + arr [i] sum updated each iteration.
+    }
+    return sum / arr.length;                    // function returns updated sum divided by length of array once loop finishes.          
+}
+
+console.log(calcAverage([2, 3, 7]));
+console.log(calcAverage(totals));
+console.log(calcAverage(tips));

@@ -1,0 +1,42 @@
+The while loop is more versatile than the for loop and can be used in a larger variety of situations. This is because the while loop does not really need a counter. We use a counter in the example below as part of the gym analogy that we've been using, however a While loop only really needs a condition. Whilst this condition remains true, the while loop will continue to iterate; this can be any condition and does not need to be related to a counter at all.
+
+let rep = 1;
+while (rep <= 10) {
+    console.log(`WHILE: Lifting weights repetition  ${rep}`);
+    rep++
+}
+
+As part of our gym analogy, we declare a counter variable outside of the loop called rep that is equal to 1.
+
+We then create a while loop with the condition of (rep <=10), followed by the code we want executed when the condition is true. Lastly, rep++ to increment the iteration is placed at the bottom of our executable code.
+
+
+A while loop is useful when we do not know how many iterations a loop requires. For example, if we want to create a program that rolls a dice, and prints to the console when that dice does not roll a 6.
+
+
+
+let dice = Math.trunc(Math.random() * 6) + 1;
+
+while (dice !== 6) {
+    console.log(`You rolled a ${dice}`);
+    dice = Math.trunc(Math.random() * 6) + 1;
+    if (dice === 6) console.log(`Loop is about to end...`)
+}
+
+Here, we first declare a variable called dice that generates a random number between 1 and 6.
+
+We then create a while loop with the condition:
+(dice !== 6) If dice does not === 6.
+(Bear in mind that if our dice variable STARTS at 6, then the loop will not run.)
+If dice does not === 6 then do the following:
+
+console log `You rolled a [1-5]`
+
+We then re-assign the dice variable a new random number in the executable code, so that the loop will continue to run its iterations until that number becomes 6.
+
+Lastly, we add an if statement that will console log: `Loop is about to end...` if our random number becomes 6. Obviously, once the iteration generates a 6, the loop end sdue to the condition that we set.
+
+To summarise, a while loop only needs a condition and is best used when we are not sure how many iterations a loop may require, making the while loop much more versatile. However, a for loop is still preferable if we know how many iterations a loop needs, especially useful for arrays etc when we know how many elements there are.
+
+
+
