@@ -1,0 +1,20 @@
+Up until now, whenever we changed our code and wanted to see the effects of that code in the browser, we would have to save the code and reload the browser. However, there is a better alternative that allows the page to reload automatically whenever we change our code in the editor. In this lecture, we will learn how.
+
+We will start with live server, which is a dev tool VSCode extension that we can install through the VSCode extension tab. Once Live server is installed, a button appears at the bottom of the script page "Go Live" that upon being clicked will open a new tab under the address http://127.0.0.1:5500/. This page will automatically refresh whenever we save our script.
+
+However, there is a more professional way of running Live Server which is by using something called Nodejs, which is a JavaScript runtime that we can install on our computers.
+
+Nodejs is a way of running JavaScript outside of the browser, but it's also a way of running development tools just like Live Server.
+
+Once Nodejs has been installed, Nodejs will be available in the VSCode terminal.
+
+Firstly, I check the current version of Node in my terminal by entering node -v. If a version is returned in the terminal, Node is installed.
+
+Secondly, I enter the following: npm install live-server -g.
+The live server package will begin to install.
+
+(npm stand for node package manager which allows us to download tools. live-server is the tool that we want, -g stands for globally, which will make live server available everywhere on my pc.)
+
+Thirdly, we enter live-server into the terminal to open our browser at 127.0.0.1:8080.
+
+The live-server command will always attempt to open the index.html file, which is why we always keep our index file within the folder.

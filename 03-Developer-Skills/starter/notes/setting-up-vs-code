@@ -1,0 +1,37 @@
+For this lecture I will be configuring VSCode and making adjustments for quality of life features such as 'Prettier'. Prettier is downloaded through the VSCode extensions tab and simply parses and formats the code accordingly to make code layout cleaner.
+
+Once downloaded, I must define prettier as my default code formatter. This is achieved by doing the following:
+
+File > Preferences > Settings > Search 'default formatter' > Click drop-down bar > select 'esbenp.prettier-vscode'
+
+Prettier is an opinionated formatter meaning that is has a strong opinion on the format of our code. We accept the changes that the formatter makes. This makes code more consistent, especially when working with others.
+
+To make changes to how prettier formats certain code, for example the use of single quotes instead of double quotes for strings, we must first create a new file in the same directory as our script called '.prettierrc'.
+
+Inside of that new file, we write the following:
+
+{
+"singleQuote": true
+}
+
+Upon writing singleQuote, the boolean value will be set to false, change it to true.
+
+We can also add other changes inside of that code block, such as the removal of paranthesis around arrow functions argument:
+
+{
+  "singleQuote": true,
+  "arrowParens": "avoid"
+}
+
+To find the options and changes that I can make to prettier, I can go to: 
+
+https://www.prettier.io/docs/en/options.html
+
+-----------------------------------------------
+
+Next I will learn how to automate console.log().
+In VSCode, you can configure snippets that can automate code such as console.log.
+
+File > Preferences > User Snippets > 'New Global snippets file' > Give it a name > Edit and configure as required.
+
+For specifically this example, we will be uncommenting the example that is provided by default as it is a 'print to console' snippet. The prefix is set to "log" but I have changed it to 'cl'. In the 'body' of the code, I remove the second line of code '$2', I also remove the $1 inside of the paranthesis.
