@@ -1,0 +1,80 @@
+In this lecture we will be discussing solving problems. Problem solving is mostly what a programmer will do and so it is a skill that must be developed and honed.
+
+--------------------------------------------------
+How to fail at solving problems!
+--------------------------------------------------
+
+1. Jumping at the problem without much thinking.
+
+2. Implementing a solution in an unstructured way without logic.
+
+3. Getting stressed out when things don't work.
+
+4. Too proud to research solutions.
+
+
+--------------------------------------------------
+FIXES
+--------------------------------------------------
+
+1. Stay calm and slow down, don't just jump at a problem without a plan.
+
+2. Take a very logical and rational approach (programming is just logic in the end!).
+
+3. Use Jonas' 4 step framework to solve any problem.
+
+
+--------------------------------------------------
+4 STEPS TO SOLVE ANY PROBLEM
+--------------------------------------------------
+
+1. Make sure you 100% under the problem. Ask the right questions to get a clear picture of the problem.
+
+Example: Project manager: "We need a function that reverses whatever we pass into it".
+
+Do we know the problem 100% here? Very unlikely. 
+
+Firstly, what does "whatever" even mean in this context? 
+What should be reversed here? It only makes sense to reverse strings, numbers and arrays.
+
+What to do if something else is passed in? 
+
+What exactly should be returned from the function? 
+Should it always be a string, or should the type be the same as whatever was passed in?
+
+Here we can ask more solution-oriented questions such as:
+How to recognise whether the argument is a number, a string, or an array?
+
+Or how to reverse a number, a string and an array?
+
+These are just some the questions we can ask here that will give us a much clearer picture toward solving this problem.
+----------------------------------------------------------------------
+
+2. Divide and conquer: Break a big problem into smaller sub-problems.
+This ties in with the previous step, as we will normally break a problem down into sub-problems to develop our understanding.
+
+Sub-problems:
+Check is argument is a number, a string, or an array.
+
+Implement reversing a number.
+
+Implement reversing a string.
+
+Implement reversing an array.
+
+Return reversed value.
+
+We now have what looks like a task list of sub-problems that we need to implement.
+----------------------------------------------------------------------
+
+3. Don't be afraid to do as much research as you have to.
+Remember that we should first try to implement a sub-problem on our own using our own coding abilities. However, if we keep hitting a wall and it is taking too much time, we should look for solutions online.
+
+Examples of questions we can Google/research:
+How to check if a value is a number/string/array in JavaScript?
+
+We could also Google:
+How to reverse a number/string/array in JavaScript?
+----------------------------------------------------------------------
+
+4. For bigger problems, we should put all of the previous steps together and write pseudo-code before writing the actual code. There are no rules to how pseudo-code should be written, it should just be understandable to you and/or a team.
