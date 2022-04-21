@@ -1,14 +1,3 @@
-// Remember, we're gonna use strict mode in all scripts now!
-'use strict';
-/*
-const x = '23';
-const birthYear = 2022;
-
-const calcAge = birthYear => 2037 - birthYear;
-
-console.log(calcAge(1981));
-*/
-
 // Using Google, StackOverflow and MDN
 
 // PROBLEM 1:
@@ -26,6 +15,9 @@ const temperatures = [3, -2, -6, -1, 'error', 9, 13, 17, 15, 14, 9, 5];
 // - Find max value in temp array
 // - Find min value in temp array
 // - Subtract min from max (amplitude) and return it
+
+We start by finding out how to find the max value in an array:
+We Google something along the lines of 'javascript get max value in array'
 
 const calcTempAmplitude = function (temps) {
   let max = temps[0];
@@ -59,6 +51,8 @@ console.log(amplitude);
 
 // 2) Breaking up into sub-problems
 // - Merge 2 arrays
+// We found out through MDN that we can use a method called .concat to merge 2 arrays into a new array. We use that below so that the new function can accept 2 array arguments.
+
 
 const calcTempAmplitudeNew = function (t1, t2) {
   const temps = t1.concat(t2);
