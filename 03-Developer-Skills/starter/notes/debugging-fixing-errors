@@ -1,0 +1,26 @@
+What is a software bug?
+
+A software bug is a defect or a problem in a computer program. Essentially, anything unexpected or unintended behaviour a computer program is a software bug..
+
+Fun note: A real bug caused errors in Harvard's computer in the 1940s, hence the name.
+
+Bugs are completly normal in software development. We are human afterall.
+
+Debugging is the process of finding, fixing and preventing futher bugs.
+
+Step 1: IDENTIFY // Becoming aware that there is a bug.
+- During development
+- Testing software
+- User reports during production
+- Context, browsers, users etc.
+
+Step 2: FIND // Isolating where exactly the bug is occurring in the code.
+- Developer console (simple code)
+- Debugger (complex code)
+
+Step 3: FIX // Correct the bug.
+- Replace the wrong solution with new correct solution.
+
+Step 4: PREVENT // Preventing it from happening again.
+- Searching for the same bug in similar code.
+- Writing tests using testing software.

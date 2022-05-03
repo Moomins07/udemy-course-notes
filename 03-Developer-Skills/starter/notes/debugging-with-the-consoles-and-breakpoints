@@ -1,0 +1,35 @@
+const measureKelvin = function () {
+  const measurement = {
+    type: 'temperature',
+    unit: 'celsius',
+
+    // Step 3: FIX
+    value: Number(prompt('Degrees celsius:')),
+  };
+
+  // Step 2: FIND
+  console.log(measurement);
+
+  //console.log(measurement.value);
+  const kelvin = measurement.value + 273;
+  return kelvin;
+};
+
+// Step 1: IDENTIFY
+console.log(measureKelvin());
+
+
+The focus of this lecture is to use the console/breakpoints to resolve any bugs that may occur in our code. 
+
+Above, we have created a basic function called measureKelvin that includes an object called 'measurement', that holds 3 key value pairs. type, unit and value.
+
+The property of 'value' is determined by the user's input/prompt.
+Following this, we create a variable called kelvin that calculates the user's input in the object + 273 to calculate the kelvin temperature.
+
+Upon using console.log(measurement), we found that the prompt is accepting the user input as a string, not a number. Therefore our kelvin function is adding a string to 273.
+
+E.g. 10 + 273 = 10273. Not 283.
+
+We know that it is the value property in our measurement object that is accepting prompt inputs as a string, to we fix this simply using the Number method. All input is now converted to a number.
+
+NOTE// console.table can also be used to neatly display an object.
