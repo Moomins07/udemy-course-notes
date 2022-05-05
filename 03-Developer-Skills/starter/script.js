@@ -79,7 +79,7 @@ const calcTempAmplitudeNew = function (t1, t2) {
 };
 const amplitudeNew = calcTempAmplitudeNew([3, 5, 1], [9, 0, 5]);
 console.log(amplitudeNew);
-*/
+
 
 const measureKelvin = function () {
   const measurement = {
@@ -123,3 +123,43 @@ const calcTempAmplitudeBug = function (t1, t2) {
 const amplitudeNew = calcTempAmplitudeBug([3, 5, 1], [9, 4, 5]);
 // Step 1: IDENTIFY
 console.log(amplitudeNew);
+
+-----------------------------------
+CODING CHALLENGE 1
+-----------------------------------
+
+const data1 = [17, 21, 23];
+const data2 = [12, 5, -5, 0, 4];
+
+// WORKS BUT DOESN'T LOG STRING ON ONE LINE ONLY
+const printForecast = function (arr) {
+  for (let i = 0; i < arr.length; i++) {
+    let daysString = ' ';
+    let days = [i + 1];
+    days == 1 ? (daysString = 'day') : (daysString = 'days');
+    console.log(`...${arr[i]}°C in ${days} ${daysString}.`);
+  }
+  console.log('-------------------------------');
+};
+
+printForecast(data1);
+printForecast(data2);
+*/
+
+const data1 = [17, 21, 23];
+const data2 = [12, 5, -5, 0, 4];
+
+//LOGS STRING ON SINGLE LINE BY UPDATING EMPY str VARIABLE EACH ITERATION
+const printForecast = function (arr) {
+  let str = ' '; //empty string to update in loop
+  for (let i = 0; i < arr.length; i++) {
+    let daysString = ' '; // empty variable for ternary operator
+    let days = [i + 1]; //counter variable
+    days == 1 ? (daysString = 'day') : (daysString = 'days'); //makes 1 = 'day' not 'days'
+    str += `${arr[i]}°C in ${[i + 1]} ${daysString} ... `; //empty str variable that is updated each loop iteration; This puts is how we get all strings on one line.
+  }
+  console.log('...' + str); //add single ellipsis at beginning
+};
+
+printForecast(data1);
+//printForecast(data2);
