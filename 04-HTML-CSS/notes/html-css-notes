@@ -1,0 +1,66 @@
+Hyper text mark-up language.
+We use it to write the content a website. This is achieved by using 'elements' of which use an opening and closing tag.
+The main element in all HTML documents is always the html element. (<html>)
+
+Inside of the HTML element, we always have the <head> and the <body> element. This is the structure that we will use for all html documents.
+
+The <head> is the settings of the page, it describes the page, such as the title. <title>. The title will be visible in Google Chrome.
+
+What we put into the <body> is what will actually be visible on the page.
+
+! in VScode will also automatically create the HTML boiler plate.
+
+
+Attributes:
+In HTML, some elements can have attributes. They describe elements. For example, we can use a href (hyperlink reference) attribute on an <a> (anchor) element to attach a url. Another example of an element that requires an attribute is the img element. The img element requires the src attribute to determine where the image can be found. <img src=""/>. The img element also doesn't need a closing tag.
+
+In-line elements will be placed on the same line as another element. <a> tags are an example of this. The text will be placed next to other elements.
+
+Block elements, on the other hand, will be placed on a seperate line.
+
+
+Classes & IDs:
+We use classes and IDs to select elements in our HTML document so that we can style them. Classes are created by placing class="" inside of the element tag: <p class="paragraph1">lorem ipsum</p>
+
+IDs are written the exact same way as classes except IDs must be unique and can only be written once on the page. We will almost never use IDs for styling or to select and element use JavaScript. It's just generally better practice to use classes.
+
+Note:
+Semantic html is also good practice. E.g. Using a <form> element instead of a <div> element, even though they do the same thing, just to describe what is actually going to be inside of that element.
+
+
+CSS:
+Styling is added to the webpage by using the <style> tag. As styling is a setting, it is added under the <head> element.
+Every CSS declaration has a property name and a value. E.g:
+background-color: green. 
+property name^    value^
+
+To link a stylesheet to our HTML document, we use the following: 
+<link href="style.css" rel="stylesheet" />
+
+The CSS box model:
+The box model is made up of the content box, padding, border and finally the margin.
+
+Content box:
+Text, images etc.
+
+Padding:
+Transparent area around the content, inside of the box.
+
+Border:
+Goes around the padding and the content.
+
+Margin:
+Similar to padding, but it is space outside of the box itself. Allows us to create space between boxes.
+
+Fill area:
+The area that gets filled with background colour/background image. Does not include the margin.
+
+
+Some elements come with margins by default and can cause issues when trying to set up our web page. We can remove all margins across the page by using the * selector to select all elements on the web page. E.g.
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+This is could a global reset.
