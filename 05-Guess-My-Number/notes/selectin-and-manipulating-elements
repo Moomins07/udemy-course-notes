@@ -1,0 +1,3 @@
+In the previos lesson, we learned how to select an element in the DOM using document.querySelector. However, we can take this one step further and actually change the text content in the element by using .textContent = `example`.
+
+Where .textContent can manipulate and change the text content in an element, we can also use .value to change the value in an element. In this lesson, we used .value to change the number inside of an input field to 23. It can be edited as if we had typed it ourselves.

@@ -1,0 +1,40 @@
+We need to actually first create a secret number that the user's guess can be compared to.
+
+We want the secret number to be defined once outside of other function/our event handler. Obviously, if we were to define the secret number inside of our 'click' event handler, a new secret number would be made every new click, which wouldn't work.
+
+We need to select a random number between 1 and 20. To do that, we use the 'Math' object followed by the method random().
+
+Math.random() will give us a random number between 0 and 1. If we then multiply that by 20, we will have our number between 0 and 19.
+
+Now to remove the decimals, we use Math.trunc().
+
+Math.trunc(Math.random()\*20) will now give us a whole integer between 0 - 19. We add + 1 at the end to give us a number between 1 and 20.
+
+Math.trunc(Math.random()\*20)+1
+
+After implementing basic if else statements for the logic of our guessing game, we also needed to update a score according to whenever the user guessed incorrectly. To do this, it was better to store the score in a variable inside of our code.
+
+} else if (guess > secretNumber) {
+document.querySelector('.message').textContent = '📈 Too high!';
+score--;
+document.querySelector('.score').textContent = score;
+
+Above, you can see that if the user guess is greater than the secretNumber, it was first display the message "Too high!" followed by removing 1 from our score variable that starts at 20. It will then display the updated score variable in the .score class in our DOM.
+
+This way we are not just relying on the DOM to hold our data. We call this kind of a variable a 'state variable' as the score variable is part of the applications state, which is basically all the data that is relevant to the application. The secretNumber variable is also part of the state of our application.
+
+We always want the data to be available somewhere in our code and not just in the DOM!!
+
+} else if (guess > secretNumber) {
+if (score > 1) {
+document.querySelector('.message').textContent = '📈 Too high!';
+score--;
+document.querySelector('.score').textContent = score;
+} else {
+document.querySelector('.message').textContent = '☠ You lose!';
+document.querySelector('.score').textContent = 0;
+}
+
+Above, we further developed the code to add an extra condition as to when the code should execute.
+
+First JS checks if the guess is greater than the secretNumber, if it is, it then checks if score is greater than 1. It displays 'Too high!' and continues to lower the score with every failed guess. When the score reaches 1, the next failed guess will execute the 'else' section of the code, which will display 0 in the score box and display "You lose!" in the message box.

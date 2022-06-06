@@ -1,0 +1,47 @@
+To make our code react to something that happens in the DOM, we use the an 'event listener'. An 'event' is something that happens on the page e.g. a mouse click or mouse moving, key press etc.
+
+With an event listener, we can wait for a certain event to happen and react to it.
+
+To listen for an event, we must first select the element where the event should happen. E.g. a html button.
+
+First we select the element:
+document.querySelector('.check')
+
+Then we call the event listener method followed by the name of the event. In the below example, we want to detect a mouse click, so we call it 'click'.
+
+document.querySelector('.check').addEventListener('click')
+
+However, we must now specify the reaction to the click event, which we do by defining a function. That function will contain exactly the code that we want to execute upon the event that we've specified.
+
+addEventListener is a special method as it actually expects two arguments, with the second being the 'eventHandler' function. It is here that we will specify the function that will execute on a click.
+
+document.querySelector('.check').addEventListener('click' function() {
+
+console.log(document.querySelector(`.guess`).value);
+
+    //Upon being clicked, console.log the guess box value to console.
+
+})
+
+NOTE: Functions are just values, which is why we can have functions within functions etc. This is why we are able to call a function inside of the addEventListener method.
+
+We do not call the function anywhere else in the code if it is passed through an eventHandler, we allow the JS engine to handle and execute the function only when the event has taken place.
+
+We can go even further with the amount of DOM manipulation in that function:
+
+document.querySelector('.check').addEventListener(`click`, function () {
+const guess = Number(document.querySelector(`.guess`).value);
+console.log(guess, typeof guess);
+
+if (!guess) {
+console.log(
+(document.querySelector('.message').textContent = `⛔ No number!`)
+);
+}
+});
+
+Here, we save the number passed through our guess box into the variable 'guess'. Note that user inputs are normally saved as a string, so we use the Number method to change it to a number.
+
+We then use an if statement to change the text content in our .message box.
+
+If we do not pass a number through our guess box, it will return 0. 0 is a falsy value and we need our if statement condition to be a true boolean vaue to execute the code. We achieve this by using ! to convert 0 from a falsy value to a truthy value. Now, even though a 0 is returned when nothing is typed in the box, it will execute the code.

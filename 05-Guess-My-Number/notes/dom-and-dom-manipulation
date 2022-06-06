@@ -1,0 +1,30 @@
+DOM (Document Object Model): 
+The DOM is a structured representation of HTML documents. The DOM allows us to use JavaScript to access HTML elements and styles to manipulate them.
+
+Essentially, the DOM is a connection point between HTML documents and JavaScript code.
+
+The DOM is automatically created by the browser as soon as the web page loads and is stored in a tree structure. In this tree, each HTMl element is one object.
+
+The DOM tree structure:
+
+The DOM always starts with the 'document' object right at the very top. Document is a special object that we have access to in JS. This object serves as an entry point into the DOM. 
+E.g. document.querySelector() was used in the previous lesson to select an element.
+
+The first child element of Document is usually the HTML element because that is the root element of HTML documents.
+
+<HTML> then usually has 2 child elements: <head> and <body>. They are adjacent elements in the DOM tree and so therefore are considered sibling elements.
+
+As we keep going deeper into the nested HTML structure, we keep adding more and more child elements.
+
+The rule is that whatever is in the HTML document also has to be in the DOM, which is why we will also see text and comments in the DOM also. The DOM is a complete representation of the HTML document so that we can manipulate it in complex ways.
+
+
+DOM !== JavaScript!
+DOM Methods and Properties for DOM manipulation (such as document.querySelector()) are NOT a part of JavaScript!
+JS is a dialect of the ECMA script specification and the DOM-related stuff is simply not in there.
+
+DOM methods and properties are a part of WEB APIs, which is why we are able to use them in JavaScript.
+WEB APIs are like libraries that browsers implement that we can access from our JS code. (Application Programming Interface).
+
+There is an official DOM specification then browsers implement which is why DOM manipulation works in all browsers. 
+There are many APIS such as Timers, Fetch API etc.

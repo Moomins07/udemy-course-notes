@@ -1,0 +1,21 @@
+You can also use DOM manipulation to make changes to the CSS styling.
+
+To do this, we once again need to use querySelector to select the element in which we would like to change the style. In the lecture, upon the user selecting the correct number, we want to change the background colour to green and slightly increase the box around the number.
+
+Firstly, we find the condition within our if-else statement that executes code upon the correct guess.
+
+} else if (guess === secretNumber) {
+document.querySelector('.message').textContent = '🎉 Correct Number!';
+
+    document.querySelector('body').style.backgroundColor = '#60b347';
+
+    document.querySelector('.number').style.width = '30rem';
+
+We select the 'body' element followed by .style followed by the property that we want to change. In this case, we want to change the background colour, followed by the colour we want inside of a string.
+
+We do the same for the .number class element to change the width of the box, of which we increase to 30rem.
+
+NOTE:
+JavaScript does not use dashes, which is why the 'background-color' css style property is written as 'backgroundColor'. We must use camel casing.
+
+The style property must be written as a string. E.g. '30rem'.

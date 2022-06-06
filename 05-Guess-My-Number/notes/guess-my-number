@@ -1,0 +1,10 @@
+Similar to how you can select a class in CSS, you can do the same in JavaScript by using document.querySelector().
+
+We must then pass in a selector (the class name we used in html): 
+document.querySelector('.example')
+
+We can further this by:
+
+   document.querySelector('.example').textContent
+  ^                                  ^           ^
+        Select the html element      Displays text content
