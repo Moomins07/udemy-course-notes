@@ -1,0 +1,81 @@
+There is a lot of repeated code in our project, this lecture will be focussed on trying to reduce the amount of unnecesary code.
+
+Why is it bad to have duplicate code?
+
+One answer:
+Whenever we have duplicate code and would like to change some functionality, we have to change the same code in multiple places. In a larger code-base, this can be a nightmare.
+
+It's fine to start out with duplicate code just to get it to work, but we then want to 'refactor' our code. Refactoring is re-structuring the code without changing how the code works. We do this to improve the code and eliminate duplicate code.
+
+An example from our Number guessing game:
+/////////////////////////////////////////
+} else if (guess > secretNumber) {
+if (score > 1) {
+document.querySelector('.message').textContent = '📈 Too high!';
+score--;
+document.querySelector('.score').textContent = score;
+} else {
+document.querySelector('.message').textContent = '☠ You lose!';
+document.querySelector('.score').textContent = 0;
+}
+
+    // When guess too low
+
+} else if (guess < secretNumber) {
+if (score > 1) {
+document.querySelector('.message').textContent = '📉 Too low!';
+score--;
+document.querySelector('.score').textContent = score;
+} else {
+document.querySelector('.message').textContent = '☠ You lose!';
+document.querySelector('.score').textContent = 0;
+}
+}
+});
+
+Can be refactored into the following:
+/////////////////////////////////////////
+} else if (guess !== secretNumber) {
+if (score > 1) {
+document.querySelector('.message').textContent =
+guess > secretNumber ? '📈 Too high!' : '📉 Too low!';
+score--;
+document.querySelector('.score').textContent = score;
+} else {
+document.querySelector('.message').textContent = '☠ You lose!';
+document.querySelector('.score').textContent = 0;
+}
+}
+});
+
+Instead of repeating ourself with 2 different if-else statements, we can unify the 2 conditions with 'if guess is different from secretNumber' (guess !== secretNumber)
+
+We then keep our score > 1 condition, followed by a ternary operator to set the textContent:
+
+textContent =
+guess > secretNumber ? '📈 Too high!' : '📉 Too low!';
+
+if guess > secretNumber then 'Too high' else 'Too low'.
+////////////////////////////////////////////////////////
+A good refactoring technique is functions. If we have a lot of duplicate code, we can also store that code in a function and simply reuse that code by recalling the function.
+
+For example:
+
+document.querySelector('.message').textContent
+
+Is repeated 5 times within our code.
+
+Firstly, we need to create a function outside of the if-else blocks:
+
+const displayMessage = function (message) {
+document.querySelector('.message').textContent = message;
+};
+
+The function accepts a parameter of 'message' we then set equal to textContent.
+So we can now do the following:
+
+if (!guess) {
+displayMessage(`⛔ No number!`);
+}
+
+Much cleaner!

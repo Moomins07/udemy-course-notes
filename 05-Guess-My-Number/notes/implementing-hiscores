@@ -1,0 +1,11 @@
+To impletement the highscore, we first needed to find where in our code that we would add the highscore functionality.
+
+The highscore will update whenever the user wins, so we first know that the functionality should be inside of the if block wherein the user wins.
+
+Then we need to add another if statement as we only want highscore to update when score > highscore.
+
+if (score > highscore) {
+highscore = score;
+}
+
+If score is greater than highscore: highscore = score.
