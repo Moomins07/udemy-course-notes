@@ -1,0 +1,19 @@
+In this lecture I will be learning how to creat modal windows.
+
+The lecture will mostly focus on the use of CSS classes.
+
+Until now we have been selecting each element individually by retyping document.querySelector. However, we will now begin to save those selections to variables. E.g.
+
+const modal = document.querySelector(".modal");
+The variable modal now selects the class '.modal'.
+
+If we use the same class name for several elements, we cannot use querySelector as it will still only select one element with that class name. To select ALL elements with that class name, we must use querySelectorAll.
+I had to use this to select our 3 modal buttons, all of which shares the class name of '.show-modal'.
+
+querySelectorAll creates a 'NodeList' of all selected elements, which is very similar to an array. We can also loop through a NodeList, the same as an array if we wished to do so.
+
+for (let i = 0; i < btnsOpenModal.length; i++) {
+console.log(btnsOpenModal[i].textContent);
+}
+
+btnsOpenModal is our NodeList (all 3 elements saved to one variable). Above, we looped through the NodeList and simply console.log'd the textContent of those elements.

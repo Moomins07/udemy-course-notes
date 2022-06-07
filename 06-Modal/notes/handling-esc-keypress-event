@@ -1,0 +1,62 @@
+The keypress event is simply just another type of event. Keyboard events are so-called 'global events' because they do not happen on single events. For global events, we normally listen on the whole document.
+
+We can add a keypress event with the following:
+
+document.addEventListener('keydown', function() {
+
+})
+
+There are 3 keypress options: keydown, keyup or keypress. keypress will repeat whilst the key is held down.
+
+As we haven't yet specified which key is being pressed, JavaScript will listen to every keydown event, meaning every key on the keyboard.
+
+We want to specify that the modal window will be closed upon pressing the 'Esc' key.
+
+How will we know which key is being pressed if the event applies to every key?
+The information about which key is pressed will be stored in the event that occurs when any key is pressed. Currently when we press a key, a keydown event is generated and our handler function is waiting for that event to happen.
+Whenever an event like this occurs, JavaScript generates an object and that object contains all the information about the event itself. We can then access that object in the event handler function.
+
+To summarise: When an event happened, we access information about that event in the event handler function.
+
+To access and look at the event information, we first need to give the function a parameter. I give it a paramtere of 'e'.
+
+document.addEventListener('keydown', function(e) {
+
+})
+
+We are telling JavaScript to call the above function when a keydown event happens, and when you do so, pass in the event object as an argument.
+
+Upon console.log(e), the console displays a very descriptive object. Inside of that object, we can see a property called 'key' with the value of whatever key we pressed.
+
+With that information, we can use an if statement to tell JavaScript to execute code based on what key was pressed:
+
+document.addEventListener("keydown", function (e) {
+console.log(e.key);
+
+if (e.key === "Escape") {
+if (!modal.classList.contains("hidden")) {
+closeModal();
+}
+}
+});
+
+Here, we are saying:
+
+(object 'e' property 'key')
+if e.key === 'Escape' then:
+Also check if modal contains the class of 'hidden'.
+
+We only want to use Esc to close the modal window when it is open, so we use ! invert and to check if 'hidden' is NOT in the class list (if the modal is displayed).
+
+If the classList does not contain 'hidden' then closeModal().
+
+We can improve this code even further:
+We are checking:
+
+if e.key === Escape AND checking if modal do NOT contain class of hidden.
+
+Therefore, we can use AND logic instead of two if statements.
+
+if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+closeModal();
+}

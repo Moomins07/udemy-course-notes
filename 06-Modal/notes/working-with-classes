@@ -1,0 +1,45 @@
+In this lecture we will learn how to manipulate classes with JavaScript.
+
+We have a <div> in the html document with 2 classes 'modal hidden'.
+the class hidden as been specified a display: none in the css styling document meaning that this <div> will stay hidden.
+
+We use JavaScript to remove the class 'hidden' causing the <div> to display on our webpage. We do this by using the classList.remove() method. See below:
+
+for (let i = 0; i < btnsOpenModal.length; i++) {
+btnsOpenModal[i].addEventListener("click", function () {
+modal.classList.remove("hidden");
+});
+
+We created a loop that adds an eventListener 'click' to each show-modal button. Upon being clicked, the class 'hidden' is removed and so the <div> displays.
+
+NOTE:
+When specifying which class to add/remove, do not use a dot/fullstop at the beginning of the class name. We only use dots when selecting a class, here we only need to type the name of the class that we are manipulating.
+E.g. "hidden" NOT ".hidden"
+
+We re-add the hidden class to our btnCloseModal (X at top right of modal box) to be able to close our modal boxes (re-hiding the modal box/overlay).
+
+btnCloseModal.addEventListener("click", function () {
+modal.classList.add("hidden");
+overlay.classList.add("hidden");
+});
+
+Following this, we want to add the ability to close the modal by clicking outside of the modal-box on the overlay. To do so, we simply repeat the same cose as above but instead applied to 'overlay'.
+However, this would be repeating uneccessary code again, so to tackle this we created a function that adds the hidden class to modal and overlay. We then use that function on both btnCloseModal and overlay. See below:
+
+const closeModal = function () {
+modal.classList.add("hidden");
+overlay.classList.add("hidden");
+};
+
+btnCloseModal.addEventListener("click", closeModal);
+overlay.addEventListener("click", closeModal);
+
+I also did the same to open the modal too:
+
+const openModal = function () {
+modal.classList.remove("hidden");
+overlay.classList.remove("hidden");
+};
+
+The function is now invoked upon a click event handler to open the modal boxes.
+Note that we don't add () when adding the function in the event handler as this would invoke the function straight away, NOT when it is clicked.
