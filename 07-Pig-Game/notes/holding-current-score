@@ -1,0 +1,98 @@
+In this lecture the aim is to add the currentScore to the total score whilst also checking if that score is >= a set number to declare a winner.
+
+The 'hold' button handles the score storing, so we add an eventListener to the hold button:
+
+btnHold.addEventListener("click", function () {
+  // 1. Add current score to active player's score
+  scores[activePlayer] += currentScore;
+  // scores[1] = scores[1] + currentScore
+
+  document.getElementById(`score--${activePlayer}`).textContent =
+    scores[activePlayer];
+
+  // 2. Check if player's score is >= 100
+  if (scores[activePlayer] >= 20) {
+
+    // Finish the game
+    document
+      .querySelector(`.player--${activePlayer}`)
+      .classList.add("player--winner");
+    document
+      .querySelector(`.player--${activePlayer}`)
+      .classList.remove("player--active");
+
+  } else {
+
+  //Switch to next player.
+    switchPlayer();
+  }
+
+});
+
+
+We use our 'scores' array to store the currentScore and we are able to easily access those scores by using our activePlayer variable which will either be 0 or 1.
+
+scores[1] = scores[1] + currentScore (scores at position 1 will continue to add currentScore.)
+
+
+
+document.getElementById(`score--${activePlayer}`).textContent =
+    scores[activePlayer];
+
+Select score--0/1 and change textContent to scores[0/1] depending on active player.
+
+
+
+
+
+if (scores[activePlayer] >= 20) {
+
+    // Finish the game
+    document
+      .querySelector(`.player--${activePlayer}`)
+      .classList.add("player--winner");
+    document
+      .querySelector(`.player--${activePlayer}`)
+      .classList.remove("player--active");
+
+  } else {
+
+  //Switch to next player.
+    switchPlayer();
+
+
+
+    If scores[0/1] >=20 :
+
+    Select player--0/1 section and add player--winner class (adds black background to that player section)
+
+    Select same player--0/1 section and remove player--active (white background to show who is current player)
+
+
+Else:
+
+    If scores[0/1] is NOT >=20 >
+    Switch player.
+
+NOTE that because switch player code was being re-used, we simply made it a function and invoke the function here.
+
+
+However, once the game is finished and a winner is selected, the user is still able to interact with the buttons and play the game.
+
+To fix this, we added a boolean variable called 'playing' that was set to true.
+
+let playing = true;
+
+We added an if statement to both the rolldice and hold button:
+
+if (playing) {
+
+[Button logic here]
+
+}
+
+In the finished game block, we change the playing variable to false.
+
+playing = false;
+
+Now, when the finished game block of code executes, playing is set to false and the buttons can no longer be used.

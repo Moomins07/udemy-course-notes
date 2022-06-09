@@ -1,0 +1,62 @@
+To keep track of the active player in our game, we will store 0 in a variable called activePlayer if it is player 0 currently playing, or 1 if player 1 is currently playing.
+
+The reason was use 0 and 1 instead of player 1 and 2 is because we will be storing the scores of both players in an array called 'scores'.
+Arrays are 0-based, which is why player 1 is player 0 and player is player 1.
+
+We want to be able to switch the active player dynamically, and so we do the following:
+
+document.getElementById(`current--${activePlayer}`).textContent =
+currentScore;
+
+Here we are selecting 'current--0' or 'current--1' depending on our variable activePLayer which will be switching between 0 and 1. The textContent is then updated to currentScore.
+
+Whereas:
+current0El.textContent = currentScore
+Will only update the textContent of just player--0 (player 1)
+
+So far:
+
+if (dice !== 1) {
+// Add dice to current score
+currentScore += dice;
+document.getElementById(`current--${activePlayer}`).textContent =
+currentScore;
+} else {
+// Switch to next player (dice is 1)
+activePlayer = activePlayer === 0 ? 1 : 0;
+}
+
+If dice rolls 2-6:
+Add dice roll to currentScore,
+Update textContent of current selected player (player 0 to start) with currentScore,
+If 1 is rolled:
+ActivePlayer switches to player 2 (player 1) through ternary operator.
+(If activePlayer === 0 then switch to 1 else switch back to 0).
+
+In its current form, the currentScore would carry over to the next player, which we do not want. To fix this, I added the following to the else block:
+
+document.getElementById(`current--${activePlayer}`).textContent = 0;
+currentScore = 0;
+
+Now, when a 1 is rolled, the textContent of currentScore of the currentPlayer is set to 0 and currentScore is also reset to 0 so that it can be re-updated with the next player.
+
+Next up we need to add the CSS animation that switches the light background from one player to the next to let the user know who the current player is.
+
+Firstly, we found the class in our HTML that is linked to that CSS styling, which was 'player--active'.
+
+We then created 2 new variables for each player-active window <section> to easily select the elements, normal procedure.
+
+I added the following to the else block (if a 1 is rolled):
+
+player0El.classList.toggle("player--active");
+player1El.classList.toggle("player--active");
+
+If a 1 is rolled, player 0 element section is selected and the toggle method is used for our 'player--active' css styling.
+
+toggle will add the class if it is not present, and will remove it if it is.
+By adding it to both player sections, we know that it will toggle between both upon rolling a 1.
+
+(Player0: 1 is rolled, is player--active there? Yes > remove it.)
+(Player1: 'player--active' is not present > Add it.
+1 is rolled, is class there? Yes > remove it.)
+Cycle continues.

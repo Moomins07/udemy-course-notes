@@ -1,0 +1,43 @@
+Again, as usual, we start by adding an element selections I may need to variables at the top of the script with the others.
+
+This time around, I've begun to comment on my code more frequently whilst also using a flow-chart to break the game down into smaller sub-problems.
+
+To start with, I want to generate the dice-roll:
+
+// Rolling dice functionality
+
+btnRoll.addEventListener("click", function () {
+// 1. Generating a random dice roll
+
+const dice = Math.trunc(Math.random() \* 6) + 1;
+
+// 2. Display dice
+
+diceEl.classList.remove("hidden");
+diceEl.src = `dice-${dice}.png`;
+
+// 3. Check for rolled 1: if true, switch to next player.
+});
+
+As you can see, I have broken the function into 3 steps of code that I'd like executed upon the Roll Dice button being clicked.
+
+Step 1: Generate random number.
+Step 2: Display that Dice number.
+Step 3: Roll conditions.
+
+Firstly, Math.random was used to generate a number between 1 and 6.
+
+Secondly, I remove the hidden class from the dice img, followed by using the src attribute and a template literal to change the dice image that is displayed.
+
+diceEl.classList.remove("hidden");
+diceEl.src = `dice-${dice}.png`;
+
+The dice images are numbered from 1-6. Our random number is stored in the 'dice' variable.
+
+By using a template literal, we can manipulate the src attribute and display the correct dice image from 1-6.
+
+If the random number is 2:
+
+`dice-${dice}.png`;
+
+Would be 'dice-2.png' and so the roll of 2 dice image is displayed.
