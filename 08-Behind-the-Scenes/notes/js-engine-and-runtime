@@ -1,0 +1,83 @@
+### What is a JavaScript engine?
+
+## JS engine
+
+The JS engine is a program that executes JS code. Every browser has its own js engine, but probably the most notable engine is Google's V8 engine that powers Google Chrome and NodeJS, which is that JavaScript runtime we covered at the beginning of the course. NodeJS allowed us to build JavaScript apps server-side outside of a browser.
+
+## JS Engine components
+
+# Call stack
+
+The JS engine always contains a 'call stack' and a 'heap'.
+The call stack is where our code is actually executed using 'execution context'.
+
+# Heap
+
+The heap is an unstructured memory pool which stores all of the objects that our application needs.
+
+## Computer science sidenote: Compilation vs. Interpretation.
+
+Code converted into machine code can be done in 1 of 2 ways >
+
+> Compilation:
+> Entire code is converted into machine code at once, and this machine code is then written into a binary file that can be executed on any computer.
+
+Source code --> Step 1 Compilation -->
+Portable file: Machine code --> Step 2 Execution -->
+Program running.
+
+> Interpretation:
+> Interpreter runs through the source code and executes it line by line.
+
+Source code ---> Execution line by line ---> Program running
+
+Js used to be an interpretative language, but interpretation is slow and is no long acceptable by today's standards.
+
+> JavaScript now uses a mix of both compilation and interpretation. This is called Just-in-time (JIT) compilation.
+> Entire code is converted into machine code at once, then executed immediately.
+
+Source code --> Step 1 Compilation -->
+Machine code --> Step 2 Execution -->
+Program running.
+
+There is no portable file to execute, the code is just executed immediately.
+
+## Modern JIT compilation of JS
+
+1. Parsing
+
+> Parsing essentially means to read the code. During the parsing process, the code is parsed into a data structure called the Abstract Syntax Tree. (AST). This works by splitting up each line of code into pieces that are meaningful to the language like const and function etc, and then saving all these pieces into the tree in a structured way. This also checks if there are any syntax errors.
+
+2. Compilation
+
+> This takes the generated AST and coverts it into machine code.
+
+3. Execution
+
+> The converted machine code is then executed immediately. (JIT compilation)
+
+The JS engine initially creates unoptimised code just to get the code running, but as the program is running, JS continues to re-compile and re-optimise the code. The unoptimised code is removed. This is what makes modern engines such as V8 so fast.
+
+## The bigger picture: JavaScript runtime
+
+> Runtime in the browser
+
+We can imagine a JS runtime as big container which includes everything that we need in order to use JS in the browser. At the heart of JS runtime is the JS engine.
+
+Without an engine, there is no runtime and there is no JS at all. However, the engine alone is not enough, in order to work properly we need access to web APIs. (DOM, Timers, Fetch API etc.)
+
+> Web APIs are functionality provided to the engine, but are NOT part of the JS language itself. JS accesses these APIs through the global window object.)
+
+It makes sense that web APIs are a part of the runtime because a runtime is just like a box that contains all of the JS related stuff that we need.
+
+A typical JavaScript runtime also includes a so-called 'callback queue'. This is a data structure that contains all of the callback functions that are ready to be executed.
+
+E.g. We attach eventHandler functions to DOM elements like a button to react to certain events.
+These eventHandler functions are also called callback functions. As the event happens, like a 'click', the callback function will be called. The first things that happens after the event is that the callback function is put into the callback queue. When the call stack is empty, the callback function is passed to the stack so that it can be executed. This is called the event loop.
+
+Event happens > Callback function called > Callback function placed in callback queue > When callstack is empty, callback function placed in call stack to be executed.
+
+## Runtime in NodeJS
+
+> A runtime in NodeJS is the same except that we do not have access to Web APIs because it's the browser that provides these. Instead, we have multiple C++ bindings and a thread pool.
+> Different JavaScript runtimes exist.

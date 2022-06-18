@@ -1,0 +1,71 @@
+### Hoisting
+
+We learned that an execution context always contains at least 3 parts:
+
+> Variable environment
+> Scope chain
+> 'this' keyboard
+
+In JavaScript, we have a mechanism called 'hoisting'.
+Hoisting makes some types of variables accessable/useable in the code before they are actually declared in the code.
+
+Before execution, code is scanned for variable declarations, and for each variable, a new property is created in the variable environmnet object.
+
+Hoisting does not work the same for all variable types.
+
+                     Hoisted --------- Initial Value --------- Scope
+
+Function ------------- ✅ ------------ Actual function ------- Block
+declarations
+
+Var variables -------- ✅ ------------ Undefined Function ---- Function
+
+Let and const -------- ❌ ----------- <uninitialized>, TDZ --- Block
+variables
+
+function expressions--- ❓ ----------- Depends on var/let/const
+and arrows
+
+TDZ (Temporal Dead Zone) makes it so that we can't access the variables between the beginning of the scope and the place where the variables are declared. As a consequence, if we attempt to use a let or const variable before it's declared, we get an error.
+
+Because function expressions/arrow functions are just functions inside of variables, the initial value will depend on the variable type. This is why we cannot use expression/arrow functions BEFORE we write them in the code.
+
+Function declarations on the other hand CAN be invoked before we write them in the code.
+
+### TDZ
+
+const myName = 'Jonas';
+
+if (myName === 'Jonas') {
+[ console.log(`Jonas is a ${job}`); ] TEMPORAL
+[ const age = 2037 - 1989; ] DEAD
+[ console.log(age); ] ZONE
+const job = 'teacher';
+console.log(x);
+}
+
+As you can see in the code above, we declare 'job' toward the bottom of
+the if block, but we try to use that variable in a template literal at the beginning of the if block.
+
+The job variable is not accessible until we declare it due to the TDZ.
+Trying to use that variable before we have declared it will result in a
+ReferenceError: Cannot access 'job' before initialization.
+
+The job variable is in the TDZ where it is still initialized but the engine knows that it will eventually be initialized, as JavaScript read the code before and set the job variable in the variable environment to uninitialized.
+
+When the execution reaches the line where the variable is declared, it is removed from the TDZ and it is safe to use.
+
+To summarise:
+Each and every let and const variable get their own TDZ that starts at the beginning the scope until the line that it is defined. The variable is only safe to use AFTER the TDZ.
+
+### Why TDZ?
+
+> The main reason TDZ was introduced in ES6 is that it makes it easier to avoid and catch errors:
+> Accessing variables before declaration is bad practice and should be avoided.
+
+> Makes const variables actually work.
+> Const variables cannot be mutated/re-assigned so it would not be possible to set them to undefined first to re-assign their actual value later. Const should never be re-assigned.
+
+### Why Hoisting?
+
+The creator of JS implemented hoisting so that we can use functions before actual declaration. This is essential for some programming techniques such as mutual recursion. Others also think that it makes code a lot more readable.

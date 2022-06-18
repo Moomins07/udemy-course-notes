@@ -1,0 +1,86 @@
+## PRIMITIVES VS OBJECTS(Reference types)
+
+let age = 30;
+let oldAge = age; // Set oldAge to age(30)
+age = 31; // Does not affect oldAge variable.
+console.log(age);
+console.log(oldAge);
+
+const me = {
+// Even though we used const, we can still manipulate the object because we're NOT changing the value at the memory address.
+name: "Jonas",
+age: 30,
+};
+
+const friend = me; // Copies me object into a new object called friend.
+friend.age = 27; // age changes to 27 for both me AND friend object.
+console.table("Friend:", friend);
+console.table("Me:", me);
+
+## REVIEW PRIMITIVES, OBJECTS & JS ENGINE
+
+PRIMITIVES:
+Number
+String
+Boolean
+Undefined
+Null
+Symbol
+Bigint
+
+Everything else is an object:
+OBJECTS:
+Object literal
+Arrays
+Functions
+Etc.
+
+When talking about memory and memory management, it's usual to call primitives 'primitive types' and object 'reference types' due to the different way they are stored in memory.
+
+JS engine is made up of Call Stack and Heap:
+All of our objects/reference types are stored in the memory Heap.
+Primitives/primitive types are stored in the Execution contexts in the Call Stack.
+
+What happens inside the JS engine and computer's memory when we declare a variable like 'age = 30' ?
+
+JS will first create a 'unique identifier' with the variable name. Then a piece of memory will be allocated with a certain address (0001 as example of address). Finally the value will be stored in memory at the specified address.
+
+Value of 30 will be specified at memory address of 0001. This all takes place in the Call Stack where primitive values are stored.
+
+The identifier points to the address and NOT to the value itself. We would normally say age = 30 (value), but in fact age = memory address 0001 which holds the value of 30. This subtle distinction is important!
+
+This means that our oldAge variable will also point to the same memory address as the age variable.
+
+The value at a certain memory address is immutable, it cannot be changed.
+When we update age = 31, a new piece of memory is allocated at a new memory address (0002), and the value is stored here.
+
+## REFERENCE VALUES EXAMPLE:
+
+When a new object is created, such as the 'me' object, it is stored in the heap. Once again, there is a memory address (e.g. D30F) and the value itself.
+
+The 'me' identifier does not point directly to this newly created memory address in the heap (D30F). Instead, it will point to a new piece of memory created in the call stack (0003), and THAT memory address will point to the heap using the memory address of D30F as its value.
+
+## To summarise:
+
+The piece of memory in the Call Stack has a reference to the piece of memory in the heap which holds our 'me' object. This is why we call objects 'reference types'.
+
+When we declare a variable as an object, an identifier is created which points to a piece of memory in the stack which in turn points to a piece of memory in the heap, where the object is stored.
+It works this way because objects might be too large to store in the call stack. The heap is like an unlimited memory pool.
+
+Next in the code, we create a new variable called 'friend' that we set to the 'me' object.
+Here, just like the primitive values, the 'friend' identifier will point to the same memory address as the 'me' indentifier.
+That memory address in the call stack (D30F) is a reference to the memory address in the Heap. This means BOTH the 'me' AND the 'friend' indentifier point to the same address in the heap.
+
+Due to this, if we copy an object into a new identifier, changes made to the object through the new identifier will also apply to original indentifier too.
+
+E.g.
+
+const me = {
+name: "Jonas",
+age: 30,
+};
+
+const friend = me;
+friend.age = 27;
+
+me.age will also be set to 27. Not just friend.age. They both point to the same reference in the heap.

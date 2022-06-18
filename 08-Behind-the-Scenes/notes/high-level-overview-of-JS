@@ -1,0 +1,79 @@
+# JavaScript intro
+
+JavaScript is a high-level, object-oriented, multi-paradigm programming language.
+
+JavaScript is a high-level, prototype-based, object oriented, multi-paradigm, interpreted or just-in-time compiled, dynamic, single-threaded, garbage collected programming language with first-class functions and a non-blocking event loop concurrency model. (Joke made by lecturer, fit as much info into definition as possible.)
+
+## High-level
+
+Any computer program needs resources!
+
+There are low-level languages such as C wherein the developer has to manage resources manually. E.g. asking the computer for memory to create a new variable.
+
+On the other hand, you have high-level languages such as JavaScript and Python, where you do not have to manage resources because these languages have so-called 'abstractions' that takes that work away from the developer. This makes the language easier to use and easier to learn. The down-side to this is that the programs will never be as fast or as optimised as C programs. One of the powerful tools that takes away memory management is garbage-collection!
+
+## Garbage-collection
+
+Garbage collection is basically an algorithm inside the JS engine which automatically removes old, un-used objects from the computer memory in order not to clog it up with unnecessary stuff. JavaScript basically has it's personal cleaning guy who cleans our memory from time to time so that we don't have to do it manually in our code.
+
+## Interpreted or just-in-time compiled
+
+The computer processor only understands 0s and 1s (binary/machine code), ultimately every program needs to written in machine code. As that's obviously not practical to write, we simply write human-readable JS code, which is an abstraction over machine code.
+
+This code eventually needs to be translated to machine code. Converting to machine code is called compiling or interpreting. This step is necessary in every single programming language because noone writes machine code manually. In the case of JavaScript, compiling takes place inside the JavaScript engine.
+
+## Multi-paradigm
+
+One of the things that makes JavaScript so popular is the fact that it is a multi-paradigm language.
+
+In programming, a paradigm is an approach and mindset of structuring code, which will ultimately direct your coding style and technique in a project that uses a certain paradigm.
+
+> 3 popular paradigms -
+
+1. Procedural programming
+
+   > Procedural programming is what we've been doing so far. Organising the code in a very linear way with some functions in-between.
+
+2. Object-oriented programming (OOP)
+3. Function programming (FP)
+
+We can classify paradigms as imperative or declarative.
+
+Many languages are only procedural or only OOP, or only functional. JavaScript does all of it!
+
+We can use whatever paradigm we want.
+
+## Prototype-based object-oriented
+
+The object-oriented nature of JavaScript is a prototype-based object oriented approach. Everything in JS is an object except for primitive values such as numbers, strings etc. Arrays, for example, are an object.
+
+> Why can we use the push method on an array?
+> This is because of prototypal inheritance.
+> Basically, we create arrays from an array blueprint, which is like a template, which is called the prototype. This prototype contains all of the array methods and the arrays that we create in our code then inherit the methods from the blueprint so we can use them on the arrays. Note that this is a huge oversimplification.
+
+## First-class functions
+
+This simply means that functions are treated as regular variables. We can pass functions into other functions, we can even return functions from functions. This allows for functional programming.
+
+Not all languages have first-class functions.
+
+A personal example of this is when we created the closeModal function and passed that into the addEventListener function.
+
+## Dynamic
+
+Dynamic means dynamically typed. In JavaScript, we don't assign data types to variables. Instead, they become known when JS executes our code. Also, the types of our variables can easily be changed as we re-assign variables. This is what dynamically typed means. The same is not true for most other programming languages where we have to assign types to variables, of which introduces less bugs in our code. It is because of this that some believe that JS should be a 'strongly' typed language and not dynamic.
+
+## Single-threaded / Non-blocking event loop
+
+Concurrency model: How the JS engine handles multiple tasks happening at the same time.
+
+> Why do we need a concurrency model?
+> JS runs in one single thread, so it can only do one thing at a time. Therefore we need a way to handle multiple things happening at the same time.
+
+In computing, a thread is like a set of instructions that is executed in the computer's CPU, so basically the thread is where our code is actually executed inside of the machine's processor.
+
+> So what if there is a long-running task?
+> Sounds like it would block the single thread. However, we want non-blocking behaviour!
+
+> How do we achieve that?
+> By using an event loop: takes long running tasks, executes them in the 'background' and puts them back in the main thread once they are finished.

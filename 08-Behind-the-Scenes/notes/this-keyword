@@ -1,0 +1,31 @@
+### 'this' keyword
+
+> 'this' keyword/'this' variable is a special variable that is created for every execution context (every function). Takes the value of (points to) the 'owner' of the function in which the 'this' keyword is used.
+
+> The value of the 'this' keyword is NOT static. It is not always the same. It depends on how the function is called, and its value is only assigned when the function is actually called.
+
+# There are 4 ways in which a function can be called:
+
+> # Method (function attached to an object)
+>
+> When using a method,'this' will point to the object that is calling the method.
+> this = <Object that is calling the method>
+
+> # Simple function call
+>
+> this = undefined (In strict mode, else global window object)
+
+> # Arrow functions
+>
+> Arrow functions do NOT get their own 'this' keyword, instead, if you use a 'this' in an arrow function, it will simply be the 'this' keyword of the parent function. (lexical scope)
+> this = <this of surrounding function (lexical this)>
+
+# Event listener
+
+> this = <DOM element that the handler is attached to>
+
+# What 'this' DOESN'T do:
+
+> 'this' does NOT point to the function itself.
+
+> 'this' does NOT point to the variable environment of the function.

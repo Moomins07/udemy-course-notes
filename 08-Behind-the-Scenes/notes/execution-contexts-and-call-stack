@@ -1,0 +1,100 @@
+### Execution Contexts & The Call Stack
+
+This lecture will answer the question:
+How is JavaScript code executed?
+
+We already know that it happens in the callstack, in the engine, but now we will dive deeper!
+
+## What is an execution context?
+
+Execution context is an abstract concept but it is defined as an environment in which a piece of JavaScript is executed. It stores all the necessary information for some code to be executed. It is like a box that stores all of the necessary information for some code to be executed. JavaScript code _always_ runs inside an execution context.
+
+A more intuitive example:
+
+> You order a pizza at a takeaway. Usually, that pizza comes in a box and it might come with some other stuff that is necessary to eat the pizza, such as cutlery or a receipt, so that you can actually pay for the pizza before eating it.
+
+> In this analogy, the pizza itself is the JS code to be executed and the pizza box is the execution context, because eating the pizza happens inside the box, which is then the environment for eating pizza. The box also contains cutlery and a receipt which are necessary to eat the pizza. (To execute the code.)
+
+**There is only ever ONE global execution context (EC): Default context, created for code that is not inside any function (top-level).**
+
+Compilation > Execution
+
+Inside of the execution:
+
+1. Creation of global execution context for top-level code.
+   (Top-level code is code that is not inside of any function)
+   In the beginning, only code outside of functions will be executed. This makes sense, functions should only be executed when they are called.
+
+2. Execution of top-level code (inside global EC).
+   Computer CPU processing machine code that it received.
+
+3. Execution of functions and waiting for callbacks.
+
+> For each and every function call a new EC will be created containing all the information that is necessary to run exactly that function. This is the same for methods as methods are obviously functions attached to objects.
+
+All of these execution contexts together make up the call stack.
+
+When all functions are done executing, the engine will keep waiting for callback functions to arrive to execute those. E.g. a callback function associated with a click event. It is the event loop that provides these new callback functions.
+
+## What's inside execution context
+
+1. Variable environment.
+   Inside of this variable environment, all of our variables and function declarations are stored.
+   There's also a special arguments object, as the name implies, it stores all of the arguments that were passed into the function that the current execution context belongs to. Remember, each function gets its own execution context as soon as the function is called.
+
+2. Scope chain.
+   Functions are able to access variables outside of the function itself. To keep track of the scope chain, it is stored in each EC.
+
+3. 'this' keyword.
+   Each context also gets a special variable called the 'this' keyword.
+
+All of the above is generated during the 'creation phase' which takes place right before execution.
+
+Execution contexts belonging to arrow functions do not get their own arguments object/this keyword. Instead they can use the arguments object/this keyword from their regular function parent.
+
+These are the things that are necessary to run each function as well as the code at the top-level.
+
+### Call Stack
+
+How will the engine keep track of the order in which the functions were called? And how will it know where it is in the execution? The call stack.
+
+The call stack together with the memory heap makes up the JS engine itself.
+
+The call stack is a place where execution contexts get stacked on top of eachother to keep track of where we are in the programs execution.
+
+The execution context that is on top of the stack is the one that is currently running, when it is finished running, it will be removed from the stack.
+
+Using the pizza analogy: It is as if you bought some pizzas with some friends and stacked the pizza boxes on top of one another to keep track of which pizza belongs to which friend.
+
+Process example:
+
+Compiled code starts execution.
+A global execution context will be created for the top-level code. This is where the code outside of the functions will be executed.
+
+The global execution context is added to the call stack. It is at the top of the stack, so it is the code currently being executed.
+
+The global execution context passes the function declarations, but when a function first() is invoked, an execution context is created for that function and it is added to the top of the call stack. Now we have:
+
+[FIRST()] <--- Current EC
+[GLOBAL]
+
+It is added to the call stack on top of the current context (was global ec), meaning it is the new current execution context.
+
+As more functions are invoked (e.g first() function invokes second() function), those functions are added to the top of the current call stack and become the current EC.
+
+As this happens, the execution of the first() function has now been paused as we are now running the second() function.
+
+[SECOND()] <--- Current EC
+[FIRST()] <--- PAUSED
+[GLOBAL]
+
+first() function will only resume once the second() function returns.
+
+It has to work this way because JS only has one thread of execution, and so it can only do one thing at a time.
+
+Once second() function is returned, it is removed from the top of the call stack and the first() function once again becomes the current function.
+
+[FIRST()] <--- Current EC
+[GLOBAL]
+
+The callstack is like a map for the JavaScript engine because it ensures the order of execution never gets lost.
