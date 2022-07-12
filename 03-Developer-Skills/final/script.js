@@ -1,5 +1,5 @@
 // Remember, we're gonna use strict mode in all scripts now!
-'use strict';
+"use strict";
 
 /*
 ///////////////////////////////////////
@@ -157,5 +157,6 @@ const printForecast = function (arr) {
   console.log('...' + str);
 };
 printForecast(data1);
-*/
 
+test
+*/

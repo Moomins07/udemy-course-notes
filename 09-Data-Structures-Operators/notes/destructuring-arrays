@@ -1,0 +1,16 @@
+Destructuring is an es6 feature and it is a way of unpacking values from an array or object into separate variables.
+
+In other words, it is to break a complex data structure down into a smaller data structure like a variable.
+
+For arrays, we use destructuring to retrieve elements from an array and store them into variables in an easy way.
+
+const arr = [2,3,4];
+const a = arr[0];
+const b = arr[1];
+const c = arr[2];
+
+const [x, y, z] = arr;
+
+Above, we create a simple array called arr with 3 elements. We create 3 individual variables a, b & c and assign them to each element in the array, which is long an inefficient.
+
+However, the easier way of doing this is array destructuring wherein we simply assign x, y, z to our array (arr). const [x , y, z] = arr;
