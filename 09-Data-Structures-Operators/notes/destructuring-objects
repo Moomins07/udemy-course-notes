@@ -1,0 +1,83 @@
+- OBJECT DESTRUCTURING -
+
+To destructure an object, we use curly braces, as this is obviously how we also create an object.
+We must use the exact property names to extract variables from the object.
+As the order does not matter in an object, we do not need to skip as we did with an array using gaps.
+
+const { name, openingHours, categories } = restaurant;
+
+- ASSIGN NEW VARIABLE NAME TO PROPERTY -
+
+But what if we want the variable names to be different from the property names?
+
+const {
+name: restaurantName,
+openingHours: hours,
+categories: tags,
+} = restaurant;
+
+We do the same except now we add a colon after the property name, followed by the new variable name.
+
+- DEFAULT VALUES -
+
+Another useful feature for when we are dealing with 3rd party data like an object from an API call, it can be very useful to have default values for the case that we are trying to read a property that does not exist in the object. Usually, then we would get undefined.
+
+e.g. restaurant.menu will returned undefined because there is no property called 'menu'.
+
+So we can set default values, the same as we can with arrays.
+
+const { menu = [], starterMenu: starters = [] } = restaurant;
+
+We set the default value of [] to menu, we do the same for starterMenu as well as assign a new variable name of 'starters'.
+
+As menu does not exist, instead of returning undefined, it now returns '[]'.
+
+Again, this is useful when we receive the data from somewhere else and we're not sure what the data will look like.
+
+- MUTATING VARIABLES -
+
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 };
+
+({a, b} = obj;)
+
+We have a & b already assigned 111 & 999. To mutate a & b using our object, we use destructuring again, but this time we must place the destructure in brackets, as without them we would have: {a, b} = obj;
+Due to using curly braces, JavaScript expects a code block, brackets solves this.
+({a, b} = obj;) works!
+
+- NESTED OBJECTS -
+
+To access object properties inside of an object we use the typical way of destructuring except we now go one step further and also specify the properties that we'd like to destructure.
+As you can see below, we destructure 'fri' inside of 'openingHours' object, and then further specify using ': {open, close}' that we want the values of 'open' & 'close' inside of 'fri'.
+
+const {
+fri: { open, close },
+} = openingHours;
+
+Again, we can go even further than that and reassign those property names to a new variable if we wanted.
+fri: { open: o, close: c }
+
+- DESTRUCTURING IN A FUNCTION -
+
+orderDelivery: function ({ starterIndex, mainIndex, time, address }) {
+console.log(
+`Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}.`
+);
+},
+
+Here we have created a function in which we passed 1 object into, NOT 4 arguments. It is really just one argument, 1 set of brackets.
+In the function as we receive that object, we immediately destructure it which is why the names in the argument match the property names exactly.
+
+We can go one step further and set default values:
+
+orderDelivery: function ({
+starterIndex = 1,
+mainIndex = 0,
+time = "20:00",
+address,
+})
+
+Now, if properties are missing when passed through the function, the default set values will be returned. E.g. 'time' at '20:00'.
+
+Destructuring like this is very useful if we are required to write a function that excepts a lot of parameters.
