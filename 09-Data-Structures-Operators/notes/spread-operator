@@ -1,0 +1,78 @@
+### Spread operator
+
+We can use a spread operator to essentially expand an array into all its elements. Basically, unpacking all the array elements at once.
+
+If we want to add new elements to the beginning of an array. For example:
+
+const arr = [7, 8, 9];
+
+With our current knowledge, we would either likely loop through this array, or manually create a new array and include elements from the above array. As seen below:
+
+const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArr);
+
+Since ES6, we can do this much more efficiently, using the spread operator:
+E.g.
+
+const newArray = [1, 2, ...arr];
+console.log(newArray);
+
+The spread operator takes all of the values out of our 'arr' array and then writes them individually '7, 8, 9' as if we wrote them manually. If we didn't include the spread operator, we would just have an array inside of an array.
+
+The spread operator takes the elements OUT of the array and individually writes them where we need them.
+
+We can us the spread operator whenever we would otherwise write multiple values seperated by commas, like with array literals that we use very often. (e.g. arr)
+
+Another example is when we pass arguments into functions.
+
+Whenever we need the elements of an array individually, we can use the spread operator.
+
+Another example of the spread operator:
+
+const newMenu = [...restaurant.mainMenu, "Gnocci"];
+console.log(newMenu);
+
+Here we create a new array called newMenu, and we use the spread operator to individually print the elements inside of the 'mainMenu array' inside of the 'restaurant' object. We then just add an extra element at the end 'Gnocci'.
+
+The spread operator is quite similar to destructuring, however, the big difference is that the spread operator takes all the elements from the array and doesn't create new variables. As a consequence, we can only use it in places where we would otherwise write values separated by commas.
+
+## 2 important use-cases of the spread operator:
+
+> To create shallow copies of arrays.
+> To merge arrays together.
+
+The spread operator works on all 'iterables', but not objects.
+
+## Using the spread operator in function arguments
+
+Firstly, we created a basic method that 'orders pasta':
+
+orderPasta: function (ing1, ing2, ing3) {
+console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}.`);
+
+Secondly, we created an array called ingredients that prompted the user 3 times for 3 different ingredients:
+
+const ingredients = [
+prompt("Let's make pasta! Ingredient 1?"),
+prompt("Ingredient 2?"),
+prompt("Ingredient 3?"),
+];
+
+Rather than passing through the 3 different elements individually:
+
+restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2])
+
+We can now just use the spread operator instead:
+
+restaurant.orderPasta(...ingredients);
+
+This does the exact same thing, it takes those elements and passes them one by one into the argument.
+
+## Using the spread operator with objects
+
+We can also use the spread operator to create shallow copies of objects, as opposed to using the '.assign' method that we used in the previous lecture.
+
+const newRestaurant = { foundedIn: 1998, ...restaurant, founder: "Guiseppe" };
+console.table(newRestaurant);
+
+Here we simply created a new object called 'newRestaurant' and used the spread operator to include the 'restaurant' object, as well as a few extra additions, such as foundedIn and founder.

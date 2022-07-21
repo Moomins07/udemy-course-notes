@@ -1,0 +1,41 @@
+### The rest paramter
+
+The rest paramater looks exactly like the spread operator, it has the same syntax. However, it does the opposite of the spread operator.
+
+We used the spread operator to build new arrays or to pass multiple values into a function. Those are the 2 use-cases. In both cases, we use the spread operator to expand an array into individual elements.
+
+The rest parameter uses the exact same syntax, however, to collect multiple elements and to condense them in an array.
+
+Spread operator it to unpack elements in an array.
+Rest parameter is to pack elements into an array.
+
+### SPREAD because on RIGHT side of =
+
+const arr = [1, 2, ...[3, 4]];
+
+### REST because on LEFT side of =
+
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+In the case if destructuring, as you can see in the REST example, we are assigning variables 'a' and 'b' to 0, 1 in our array. We then use the rest parameter to assign everything else to an array called 'others'.
+
+It is called 'rest' because it takes the 'rest' of the remaining elements and puts them into a new array.
+
+### Using both destructure, rest and spread
+
+// Destructure and rest paramter used
+const [pizza, , risotto, ...otherFood] = [
+// Spread parameter used to create new array
+...restaurant.mainMenu,
+...restaurant.starterMenu,
+];
+
+> Note that we skip an element after pizza in destructure. The rest parameter we use for otherFood will not include skipped elements. This is why the rest parameter must be last in the destructuring assignment. There can also only be one REST in a destructuring assignment.
+
+### Recap
+
+The spread and rest parameter look exactly the same but work in opposite ways depending on where they are used.
+The spread operator is used where we would otherwise write values separated by a comma.
+
+On the other hand, the rest parameter is used where we would otherwise write variable names separated by commas. The rest parameter can be used where we would write variable names separated by commas and NOT values separated by commas.
