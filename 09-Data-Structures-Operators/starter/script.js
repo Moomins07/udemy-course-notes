@@ -51,9 +51,116 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
-// --------------------------------
-// REST OPERATOR
-// --------------------------------
+/*
+const rest1 = {
+  name: "Capri",
+  // numGuests: 20,
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: "La Piazza",
+  owner: "Giovanni Rossi",
+};
+
+// -- OR assignment operator --
+// rest1.numGuests = rest1.numGuests || 10;
+// rest2.numGuests = rest2.numGuests || 10;
+// Using OR to set default values
+
+rest1.numGuests ||= 10;
+rest2.numGuests ||= 10;
+// This is the logical OR assignment. Essentially the same as +=
+// It's just a cleaner and more concise way to code it.
+
+// -- NULLISH assignment operator --
+rest1.numGuests ??= 10;
+rest2.numGuests ??= 10;
+
+// -- AND assignment operator --
+// rest1.owner = rest1.owner && "<ANONYMOUS>";
+// Because .owner does not exist in rest1, .owner is undefined and therefore a falsy value.
+// Because it is falsy, it is the value that is immediately returned and not short-circuited.
+// rest2.owner = rest2.owner && "<ANONYMOUS>";
+// rest2.owner exists so it is truthy > evaluates and returns <ANONYMOUS>
+rest1.owner &&= "<ANONYMOUS>";
+rest2.owner &&= "<ANONYMOUS>";
+// Logical AND assignment operator assigns value to a variable IF it is currently truthy.
+
+console.log(rest1);
+console.log(rest2);
+
+
+--------------------------------
+NULLISH COALESCING OPERATOR
+--------------------------------
+
+restaurant.numGuests = 0;
+
+const guests = restaurant.numGuests || 10;
+console.log(guests);
+// Using OR here does not work because numGuests = 0
+// 0 is a falsy value, so it outputs 10, even though we know that numGuests exists in our code.
+
+// Nullish: null and undefined (NOT 0 or '')
+// Checks if value is null or undefined.
+const guestsCorrect = restaurant.numGuests ?? 10;
+console.log(guestsCorrect);
+// Above is a solution to this problem. The 'nullish' operator.
+// It works the same as OR but works around the bug of treating 0 as falsy even if the code exists.
+
+
+--------------------------------
+SHORT CIRCUITING (&& AND ||)
+--------------------------------
+console.log("-------- OR ---------");
+// OR short-circuits at first TRUTHY value.
+// Use any data type, return ANY data type, short-circuiting
+console.log(3 || "Jonas");
+console.log("" || "Jonas");
+console.log(true || 0);
+console.log(undefined || null);
+
+console.log(undefined || 0 || "" || "Hello" || 23 || null);
+// outputs "Hello" because it is the first truthy value
+
+// restaurant.numGuests = 23;
+const guests1 = restaurant.numGuests ? restaurant.numGuests : 10;
+// Real world applications of short-circuiting.
+// if guest1 = numGuests if numGuests is true, else guests1 = 10 (default value). INEFFECIENT METHOD.
+console.log(guests1);
+
+const guests2 = restaurant.numGuests || 10;
+console.log(guests2);
+// Here we use short-circuiting as an easier way to perform the above ternary operation. EFFICIENT METHOD.
+// NOTE THAT BOTH METHODS ABOVE WILL NOT WORK IF numGuests = 0 as 0 is falsy!
+
+console.log("-------- AND ---------");
+// AND does the opposite of OR and short-cicuits at first FALSY value.
+console.log(0 && "Jonas");
+console.log(7 && "Jonas");
+
+console.log("Hello" && 23 && null && "Jonas");
+
+// Practical real-world examples
+if (restaurant.orderPizza) {
+  restaurant.orderPizza("mushrooms", "spinach");
+}
+
+// Pretend that we don't know if .orderPizza exists
+restaurant.orderPizza && restaurant.orderPizza("mushrooms", "spinach");
+
+// --- RECAP ---
+// OR operator will return the first truthy value or the last value if all are falsy.
+// AND will return the first falsy value or the last value if all are truthy.
+// Practical applications: We can use the OR operator to set
+// default values and we can use the AND operator to execute
+// code in the second operant if the first one is true.
+
+
+--------------------------------
+REST PATTERN & PARAMETERS
+--------------------------------
 
 // Destructuring
 
@@ -95,7 +202,7 @@ add(...x);
 // Everything past 'mushroom' was stored in parameter 'otherIngredients'
 restaurant.orderPizza("mushrooms", "onion", "olives", "spinach");
 restaurant.orderPizza("mushrooms");
-/*
+
 --------------------------------
 SPREAD OPERATOR
 --------------------------------
@@ -242,4 +349,73 @@ console.log(i, j, k);
 const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r);
 // If an array is longer than we know, this replaces undefined with a 1/sets default value of 1.
+
+--------------------------------
+CODING CHALLENGE #1
+--------------------------------
 */
+const game = {
+  team1: "Bayern Munich",
+  team2: "Borrussia Dortmund",
+  players: [
+    [
+      "Neuer",
+      "Pavard",
+      "Martinez",
+      "Alaba",
+      "Davies",
+      "Kimmich",
+      "Goretzka",
+      "Coman",
+      "Muller",
+      "Gnarby",
+      "Lewandowski",
+    ],
+    [
+      "Burki",
+      "Schulz",
+      "Hummels",
+      "Akanji",
+      "Hakimi",
+      "Weigl",
+      "Witsel",
+      "Hazard",
+      "Brandt",
+      "Sancho",
+      "Gotze",
+    ],
+  ],
+  score: "4:0",
+  scored: ["Lewandowski", "Gnarby", "Lewandowski", "Hummels"],
+  date: "Nov 9th, 2037",
+  odds: {
+    team1: 1.33,
+    x: 3.25,
+    team2: 6.5,
+  },
+};
+
+const [players1, players2] = game.players;
+console.log(players1, players2);
+
+const [gk, ...fieldPlayers] = players1;
+console.log(gk, fieldPlayers);
+
+const allPlayers = [...players1, ...players2];
+console.log(allPlayers);
+
+const players1Final = [...players1, "Thiago", "Coutinho", "Perisic"];
+console.log(players1Final);
+
+const { team1, x: draw, team2 } = game.odds;
+console.log(team1, draw, team2);
+
+let printGoals = function (...players) {
+  console.log(players);
+  console.log(`${players.length} goals were scored.`);
+};
+
+printGoals(...game.scored);
+
+team1 < team2 && console.log("Team 1 is more likely to win.");
+team1 > team2 && console.log("Team 2 is more likely to win.");
