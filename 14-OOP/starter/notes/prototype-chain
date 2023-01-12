@@ -1,0 +1,18 @@
+# Prototype chain
+
+Every object in JavaScript has a prototype!
+
+The prototype of an object created using a constructor function therefore ALSO has a prototype. This prototype is Object.prototype which points to the Object constructor function. The Object constructor function is the 'default/top-level' constructor that is also invoked when we create object literals in JS.
+
+We can think of the prototype chain similarly to the scope chain.
+JavaScript attempts to find the method that we have invoked in the object itself, if it is not there, it will continue to 'go-up' the prototype chain until it finds that method.
+
+Object.prototype
+
+        ^
+
+Person.prototype
+
+        ^
+
+jonas{} (object created using Person constructor function)

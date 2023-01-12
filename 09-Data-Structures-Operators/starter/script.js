@@ -4,6 +4,23 @@
 const flights =
   "_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30";
 
+const weekDays = ["mon", "tues", "wed", "thu", "fri", "sat", "sun"];
+const openingHours = {
+  // Computing property names instead of hardcording/setting them ourselves
+  [weekDays[3]]: {
+    open: 12,
+    close: 22,
+  },
+  [weekDays[4]]: {
+    open: 11,
+    close: 23,
+  },
+  [weekDays[5]]: {
+    open: 0, // Open 24 hours
+    close: 24,
+  },
+};
+
 // Data needed for first part of the section
 const restaurant = {
   name: "Classico Italiano",
@@ -11,22 +28,12 @@ const restaurant = {
   categories: ["Italian", "Pizzeria", "Vegetarian", "Organic"],
   starterMenu: ["Focaccia", "Bruschetta", "Garlic Bread", "Caprese Salad"],
   mainMenu: ["Pizza", "Pasta", "Risotto"],
-  openingHours: {
-    thu: {
-      open: 12,
-      close: 22,
-    },
-    fri: {
-      open: 11,
-      close: 23,
-    },
-    sat: {
-      open: 0, // Open 24 hours
-      close: 24,
-    },
-  },
 
-  order: function (starterIndex, mainIndex) {
+  // ES6 enhanced object literals
+  openingHours,
+
+  // ES6 easier functions in object
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
     // created method to order from menu using array positions/index
   },
@@ -51,7 +58,23 @@ const restaurant = {
     console.log(otherIngredients);
   },
 };
+
+// console.log([...menu.entries()]);
 /*
+--------------------------------
+FOR-OF LOOP
+--------------------------------
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) console.log(item);
+
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
+
+// console.log([...menu.entries()]);
+
+
 const rest1 = {
   name: "Capri",
   // numGuests: 20,
@@ -353,7 +376,7 @@ console.log(p, q, r);
 --------------------------------
 CODING CHALLENGE #1
 --------------------------------
-*/
+
 const game = {
   team1: "Bayern Munich",
   team2: "Borrussia Dortmund",
@@ -419,3 +442,4 @@ printGoals(...game.scored);
 
 team1 < team2 && console.log("Team 1 is more likely to win.");
 team1 > team2 && console.log("Team 2 is more likely to win.");
+*/
