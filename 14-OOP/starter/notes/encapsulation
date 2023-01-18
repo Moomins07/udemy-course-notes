@@ -1,0 +1,7 @@
+There are 2 big reasons as to why we need encapsulation and data privacy.
+First, it is to prevent code from outside of a class from accidentally manipulating our data inside the class.
+
+The second reason is that when we expose a small interface (a small API consisting of a few public methods) then we can change all the other internal methods with more confidence. This way, we can be sure that our external code does not rely on these private methods, therefore our code will not break when we make internal changes.
+
+Note that JavaScript classes do not yet support 'real' data privacy and encapsulation.
+We once again have to 'fake' encapsulation within JavaScript using a convention.

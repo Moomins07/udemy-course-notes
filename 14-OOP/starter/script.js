@@ -181,6 +181,7 @@ console.log(account.movements);
 
 //------------------------------------------------
 // We can also use getters and setters in Classes
+
 class PersonCl {
   constructor(fullName, birthYear) {
     this.fullName = fullName;
@@ -350,7 +351,7 @@ console.dir(Student.prototype.constructor);
 -----------------------------------------
 CODING CHALLENGE #3
 -----------------------------------------
-*/
+
 const Car = function (make, currentSpeed) {
   this.make = make;
   this.currentSpeed = currentSpeed;
@@ -384,3 +385,369 @@ tesla.accelerate();
 tesla.accelerate();
 tesla.chargeBattery(90);
 tesla.accelerate();
+
+
+-------------------------------------------
+INHERITANCE BETWEEN "CLASSES": ES6 CLASSES
+-------------------------------------------
+
+class PersonCl {
+  constructor(fullName, birthYear) {
+    this.fullName = fullName;
+    this.birthYear = birthYear;
+  }
+
+  calcAge() {
+    console.log(2023 - this.birthYear);
+  }
+
+  greet() {
+    console.log(`Hey ${this.firstName}`);
+  }
+
+  get age() {
+    return 2037 - this.birthYear;
+  }
+
+  set fullName(name) {
+    console.log(name);
+    if (name.includes(' ')) this._fullName = name;
+    else alert(`${name} is not a full name!`);
+  }
+
+  get fullName() {
+    return this._fullName;
+  }
+}
+
+class StudentCl extends PersonCl {
+  constructor(fullName, birthYear, course) {
+    // Always needs to happen first! (super sets 'this' keyword)
+    super(fullName, birthYear);
+    this.course = course;
+  }
+
+  introduce() {
+    console.log(`My name is ${this.fullName} and I study ${this.course}`);
+  }
+
+  // This calcAge function overwrites the calcAge function is the PersonCl because
+  // this method appears first in the prototype chain.
+  calcAge() {
+    console.log(
+      `I'm ${
+        2037 - this.birthYear
+      } years old, but as a student I feel more like ${
+        2037 - this.birthYear + 10
+      }`
+    );
+  }
+}
+
+const martha = new StudentCl('Martha Jones', 2012, 'Computer Science');
+martha.introduce();
+martha.calcAge();
+
+
+---------------------------------------------
+INHERITANCE BETWEEN "CLASSES": Object.create
+---------------------------------------------
+// This method of linking prototypes is less common but is a method of linking objects to other objects
+// without 'faking' classes in JavaScript. 
+
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const steven = Object.create(PersonProto);
+
+const StudentProto = Object.create(PersonProto);
+
+StudentProto.init = function (firstName, birthYear, course) {
+  PersonProto.init.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+StudentProto.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+
+const jay = Object.create(StudentProto);
+jay.init('Jay', 2010, 'Computer Science');
+jay.introduce();
+jay.calcAge();
+
+
+---------------------------------------------
+ANOTHER CLASS EXAMPLE
+---------------------------------------------
+
+class Account {
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.pin = pin;
+    this.movements = [];
+    this.locale = navigator.language;
+
+    console.log(`Thanks for opening an account, ${owner}`);
+  }
+
+  // Public Interface
+  deposit(val) {
+    this.movements.push(val);
+  }
+
+  withdraw(val) {
+    this.deposit(-val);
+  }
+
+  approveLoan(val) {
+    return true;
+  }
+
+  requestLoan(val) {
+    if (this.approveLoan(val)) {
+      this.deposit(val);
+      console.log(`Loan approved`);
+    }
+  }
+}
+
+const acc1 = new Account('Jonas', 'EUR', 1111, []);
+// console.log(acc1);
+
+// acc1.movements.push(250);  BAD PRACTICE, BETTER TO USE FUNCTIONS AS SEEN BELOW
+// acc1.movements.push(-140);
+acc1.deposit(250);
+acc1.withdraw(140);
+acc1.requestLoan(1000);
+acc1.approveLoan(1000)
+
+console.log(acc1);
+
+console.log(acc1.pin);
+
+
+---------------------------------------------
+ENCAPSULATION: Protected Properties & Methods
+---------------------------------------------
+
+class Account {
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this._pin = pin;
+
+    //  protected property
+    this._movements = []; // The underscore displays to your team that it should not be manipulated
+
+    this.locale = navigator.language;
+
+    console.log(`Thanks for opening an account, ${owner}`);
+  }
+
+  // Public Interface
+  getMovements() {
+    return this._movements;
+  }
+
+  deposit(val) {
+    this._movements.push(val);
+  }
+
+  withdraw(val) {
+    this.deposit(-val);
+  }
+
+  _approveLoan(val) {
+    return true;
+  }
+
+  requestLoan(val) {
+    if (this._approveLoan(val)) {
+      this.deposit(val);
+      console.log(`Loan approved`);
+    }
+  }
+}
+
+const acc1 = new Account('Jonas', 'EUR', 1111, []);
+// console.log(acc1);
+
+//acc1._movements.push(250); //BAD PRACTICE, BETTER TO USE FUNCTIONS AS SEEN BELOW
+//acc1._movements.push(-140);
+acc1.deposit(250);
+acc1.withdraw(140);
+acc1.requestLoan(1000);
+acc1._approveLoan(1000);
+console.log(acc1.getMovements());
+
+console.log(acc1);
+console.log(acc1.pin);
+
+------------------------------------------------
+ENCAPSULATION: Private class fields and Methods
+------------------------------------------------
+
+// Class fields are a potential ne addition to JavaScript that will allow us to
+// use Classes similar to that of Java and C++ with true privacy and not a 'convention
+// Work around as we have used in above examples.
+
+// In the proposal to add Class fields to JS, there are 8 different kinds of fields and methods. (We will only be exploring 4 of them here)
+
+// 1) Public fields
+// 2) Private fields
+// 3) Public methods
+// 4) Private methods
+// (there is also the static version of all of the above )
+
+class Account {
+  // 1) Public fields (NOT IN PROTOTYPE, IN EVERY INSTANCE)
+  locale = navigator.language;
+
+  // 2) Private fields (NOT IN PROTOTYPE, IN EVERY INSTANCE)
+  #movements = [];
+  #pin; // sets an undefined variable for pin that is updated below inside constructor
+
+  constructor(owner, currency, pin) {
+    this.owner = owner;
+    this.currency = currency;
+    this.#pin = pin;
+    //  protected property
+    // this._movements = [];
+    // this.locale = navigator.language;
+
+    console.log(`Thanks for opening an account, ${owner}`);
+  }
+
+  // 3) Public methods
+  // Public Interface
+  getMovements() {
+    return this.#movements;
+  }
+
+  deposit(val) {
+    this.#movements.push(val);
+    return this; // returns current object('this')
+    // We need a value returned so that we can chain methods, otherwise returns undefined
+  }
+
+  withdraw(val) {
+    this.deposit(-val);
+    return this;
+  }
+
+  requestLoan(val) {
+    if (this._approveLoan(val)) {
+      this.deposit(val);
+      console.log(`Loan approved`);
+      return this;
+    }
+  }
+
+  static helper() {
+    // static method, only works on the class itself (good for helper functions)
+    console.log('Helper');
+  }
+
+  // 4) Private methods (Currently not supported by any browser)
+  // #approveLoan(val) {
+  _approveLoan() {
+    return true;
+  }
+}
+
+const acc1 = new Account('Jonas', 'EUR', 1111, []);
+// console.log(acc1);
+
+//acc1._movements.push(250); //BAD PRACTICE, BETTER TO USE FUNCTIONS AS SEEN BELOW
+//acc1._movements.push(-140);
+acc1.deposit(250);
+acc1.withdraw(140);
+acc1.requestLoan(1000);
+console.log(acc1.getMovements());
+console.log(acc1);
+Account.helper();
+
+// console.log(acc1.#movements); Returns error as movements is now private and cannot
+// be accesssed outside of the enclosed class.
+
+// console.log(acc1.#pin); Also will not work as pin is a private field.
+
+// console.log(acc1.#approveLoan()); Also will not work as method is private.
+
+// CHAINING
+acc1.deposit(300).deposit(500).withdraw(35).requestLoan(25000).withdraw(4000);
+console.log(acc1.getMovements());
+
+------------------------------------------------
+CODING CHALLENGE #4
+------------------------------------------------
+*/
+
+class CarCl {
+  constructor(make, currentSpeed) {
+    this.make = make;
+    this.currentSpeed = currentSpeed;
+  }
+
+  get speedUS() {
+    return this.currentSpeed / 1.6;
+  }
+
+  set speedUS(currentSpeed) {
+    this.currentSpeed = currentSpeed * 1.6;
+  }
+
+  brake() {
+    this.currentSpeed -= 5;
+    console.log(`${this.make} is going at ${this.currentSpeed} km/h`);
+    return this;
+  }
+}
+
+class EVCl extends CarCl {
+  #charge; // Private - Undefined variable updated below
+  constructor(make, currentSpeed, charge) {
+    super(make, currentSpeed);
+    this.#charge = charge;
+  }
+
+  chargeBattery(chargeTo) {
+    this.#charge = chargeTo;
+    return this;
+  }
+
+  accelerate() {
+    this.currentSpeed += 20;
+    this.#charge--;
+    console.log(
+      `Tesla is going at ${this.currentSpeed} km/h, with a charge of ${
+        this.#charge
+      }`
+    );
+    return this;
+  }
+}
+
+const tesla = new EVCl('Tesla', 120, 23);
+
+tesla
+  .accelerate()
+  .accelerate()
+  .chargeBattery(50)
+  .accelerate()
+  .accelerate()
+  .brake()
+  .brake()
+  .brake()
+  .accelerate();
+console.log(tesla.speedUS);
